@@ -16,5 +16,12 @@ namespace ArtActionProject
         {
             InitializeComponent();
         }
+
+        //종료버튼
+        private void PbExitMainForm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("프로그램을 종료시키겠습니다");
+            Application.Exit();
+        }
     }
 }

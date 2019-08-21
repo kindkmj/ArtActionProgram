@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity.cs" />
     <Compile Include="GuidForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +91,12 @@
     <Compile Include="TermsAndConditionForm.Designer.cs">
       <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GuidForm.resx">
+      <DependentUpon>GuidForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -99,6 +106,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TermsAndConditionForm.resx">
+      <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

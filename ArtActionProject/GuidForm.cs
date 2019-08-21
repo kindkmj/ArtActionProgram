@@ -16,5 +16,11 @@ namespace ArtActionProject
         {
             InitializeComponent();
         }
+
+        private void PbBackGuideForm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("이용약관 가이드를 중도 중지시키겠습니다");
+            Application.Exit();
+        }
     }
 }
