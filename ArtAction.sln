@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "LoginForm\LoginForm.csproj", "{C85E1032-F0E4-4C20-9D8D-8953BBC56F69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainForm", "MainForm\MainForm.csproj", "{8114AFCF-858D-4707-BD8F-911F71AC4DF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegisterForm", "RegisterForm\RegisterForm.csproj", "{37D1DE13-838F-4458-AC7B-2E6DFAE60862}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C85E1032-F0E4-4C20-9D8D-8953BBC56F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C85E1032-F0E4-4C20-9D8D-8953BBC56F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C85E1032-F0E4-4C20-9D8D-8953BBC56F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8114AFCF-858D-4707-BD8F-911F71AC4DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8114AFCF-858D-4707-BD8F-911F71AC4DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8114AFCF-858D-4707-BD8F-911F71AC4DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8114AFCF-858D-4707-BD8F-911F71AC4DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D1DE13-838F-4458-AC7B-2E6DFAE60862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D1DE13-838F-4458-AC7B-2E6DFAE60862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D1DE13-838F-4458-AC7B-2E6DFAE60862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D1DE13-838F-4458-AC7B-2E6DFAE60862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
