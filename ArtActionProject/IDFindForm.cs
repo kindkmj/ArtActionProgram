@@ -12,9 +12,51 @@ namespace ArtActionProject
 {
     public partial class IDFindForm : Form
     {
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
         public IDFindForm()
         {
             InitializeComponent();
+        }
+
+        private void PbBackFindIDForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void TbFindIDFindIDForm_Enter(object sender, EventArgs e)
+        {
+            tbFindIDFindIDForm.Text = string.Empty;
+        }
+
+        private void IDFindForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;   
+        }
+
+        private void IDFindForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));    
+
+
+            }
+        }
+
+        private void IDFindForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
         }
     }
 }
