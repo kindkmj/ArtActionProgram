@@ -1,4 +1,4 @@
-﻿namespace MainForm
+﻿namespace LoginForm
 {
     partial class Form1
     {
