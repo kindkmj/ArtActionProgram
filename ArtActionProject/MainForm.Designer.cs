@@ -104,8 +104,8 @@
             this.btnViewImageMainForm1.Name = "btnViewImageMainForm1";
             this.btnViewImageMainForm1.Size = new System.Drawing.Size(175, 155);
             this.btnViewImageMainForm1.TabIndex = 5;
-            this.btnViewImageMainForm1.Text = "ViewImage1";
             this.btnViewImageMainForm1.UseVisualStyleBackColor = true;
+            this.btnViewImageMainForm1.Click += new System.EventHandler(this.BtnViewImageMainForm1_Click);
             // 
             // btnViewImageMainForm2
             // 
@@ -115,6 +115,7 @@
             this.btnViewImageMainForm2.TabIndex = 5;
             this.btnViewImageMainForm2.Text = "ViewImage2";
             this.btnViewImageMainForm2.UseVisualStyleBackColor = true;
+            this.btnViewImageMainForm2.Click += new System.EventHandler(this.BtnViewImageMainForm2_Click);
             // 
             // btnViewImageMainForm3
             // 
@@ -124,6 +125,7 @@
             this.btnViewImageMainForm3.TabIndex = 5;
             this.btnViewImageMainForm3.Text = "ViewImage3";
             this.btnViewImageMainForm3.UseVisualStyleBackColor = true;
+            this.btnViewImageMainForm3.Click += new System.EventHandler(this.BtnViewImageMainForm3_Click);
             // 
             // pbEnterViewImageMainForm1
             // 
@@ -192,6 +194,7 @@
             this.btnCheckInfoMainForm.TabIndex = 8;
             this.btnCheckInfoMainForm.Text = "고객정보";
             this.btnCheckInfoMainForm.UseVisualStyleBackColor = true;
+            this.btnCheckInfoMainForm.Click += new System.EventHandler(this.BtnCheckInfoMainForm_Click);
             // 
             // btnStartAuctionMainForm
             // 
