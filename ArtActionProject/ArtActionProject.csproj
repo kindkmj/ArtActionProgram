@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerInfoForm.Designer.cs">
+      <DependentUpon>CustomerInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity.cs" />
     <Compile Include="GuidForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,11 +97,14 @@
     <Compile Include="TermsAndConditionForm.Designer.cs">
       <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="IDFindForm.resx">
-      <DependentUpon>IDFindForm.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerInfoForm.resx">
+      <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="GuidForm.resx">
+      <DependentUpon>GuidForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,11 +115,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PWFindForm.resx">
-      <DependentUpon>PWFindForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegisterForm.resx">
-      <DependentUpon>RegisterForm.cs</DependentUpon>
+    <EmbeddedResource Include="TermsAndConditionForm.resx">
+      <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
