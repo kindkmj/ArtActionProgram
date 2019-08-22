@@ -36,12 +36,13 @@
             // 
             // btnEnterValueFindIDForm
             // 
-            this.btnEnterValueFindIDForm.Location = new System.Drawing.Point(51, 115);
+            this.btnEnterValueFindIDForm.Location = new System.Drawing.Point(118, 115);
             this.btnEnterValueFindIDForm.Name = "btnEnterValueFindIDForm";
             this.btnEnterValueFindIDForm.Size = new System.Drawing.Size(97, 70);
             this.btnEnterValueFindIDForm.TabIndex = 0;
             this.btnEnterValueFindIDForm.Text = "E-Mail Me";
             this.btnEnterValueFindIDForm.UseVisualStyleBackColor = true;
+            this.btnEnterValueFindIDForm.Click += new System.EventHandler(this.BtnEnterValueFindIDForm_Click);
             // 
             // tbFindIDFindIDForm
             // 
@@ -55,7 +56,8 @@
             // 
             // pbBackFindIDForm
             // 
-            this.pbBackFindIDForm.Location = new System.Drawing.Point(196, 119);
+            this.pbBackFindIDForm.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pbBackFindIDForm.Location = new System.Drawing.Point(265, 119);
             this.pbBackFindIDForm.Name = "pbBackFindIDForm";
             this.pbBackFindIDForm.Size = new System.Drawing.Size(87, 66);
             this.pbBackFindIDForm.TabIndex = 4;

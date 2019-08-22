@@ -22,12 +22,12 @@ namespace ArtActionProject
 
         private void TbFindPWFindPWForm_Enter(object sender, EventArgs e) 
         {
-            tbFindPWFindPWForm.Text = string.Empty;
+            tbIDPWForm.Text = string.Empty;
         }
 
         private void TbEnterEmailFindIDForm_Enter(object sender, EventArgs e)
         {
-            tbEnterEmailFindIDForm.Text = string.Empty;
+            tbEmailFindIDForm.Text = string.Empty;
         }
 
     
@@ -68,6 +68,28 @@ namespace ArtActionProject
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        private void BtnEnterValueFindPWForm_Click(object sender, EventArgs e)
+        {
+            if (tbIDPWForm.Text.Trim() == "ID" || tbEmailFindIDForm.Text.Trim() =="E-Mail")
+            {
+                MessageBox.Show("아이디 혹은 이메일 값을 확인해주세요.");
+                return;
+            }
+            string email = "";
+            string id = "";
+            //processCase 이름 다시 짓기.
+            id = Entity.Select("ID", tbIDPWForm.Text.Trim());
+            email = Entity.Select("Email", tbEmailFindIDForm.Text.Trim());
+            if (tbEmailFindIDForm.Text.Trim() == email&&tbIDPWForm.Text.Trim()==id)
+            {
+                //메일 전송하는시스템 사용
+            }
+            else if (tbEmailFindIDForm.Text.Trim() != email)
+            {
+                MessageBox.Show("등록된 이메일이 없습니다.");
             }
         }
     }
