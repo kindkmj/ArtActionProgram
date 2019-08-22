@@ -81,8 +81,8 @@ namespace ArtActionProject
             string email = "";
             string id = "";
             //processCase 이름 다시 짓기.
-            id = Entity.Select("ID", tbIDPWForm.Text.Trim());
-            email = Entity.Select("Email", tbEmailFindIDForm.Text.Trim());
+            id = Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDPWForm.Text.Trim());
+            email=Entity.Select("C", "S", "EMAIL", "CUSTOMER_INFO", "EMAIL", tbEmailFindIDForm.Text.Trim());
             if (tbEmailFindIDForm.Text.Trim() == email&&tbIDPWForm.Text.Trim()==id)
             {
                 //메일 전송하는시스템 사용

@@ -67,7 +67,7 @@ namespace ArtActionProject
                 return;
             }
             string email = "";
-            email= Entity.Select("Email", tbFindIDFindIDForm.Text);
+            email= Entity.Select("C","S","EMAIL", "CUSTOMER_INFO","EMAIL", tbFindIDFindIDForm.Text.Trim());
             if (tbFindIDFindIDForm.Text.Trim() == email)
             {
                 //메일 전송하는시스템 사용

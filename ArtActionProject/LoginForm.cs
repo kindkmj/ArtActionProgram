@@ -13,6 +13,7 @@ namespace ArtActionProject
 {
     public partial class LoginForm : Form
     {
+        
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -47,22 +48,8 @@ namespace ArtActionProject
             try
             {
                 string test = "";
-                SqlConnection sqlConnection = new SqlConnection();
-                sqlConnection.ConnectionString =
-                    @"server=192.168.0.230\MSSQLSERVER,1433; database=customerinfo;uid=st;pwd=dkdlxl";
-                sqlConnection.Open();
-                SqlCommand command = new SqlCommand();
-                command.Connection = sqlConnection;
-                command.CommandText = $"select * from customer where id='{tbIDLogInForm.Text}'";
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    test = reader["ID"] as string;
-
-                }
-                reader.Close();
-                sqlConnection.Close();
-                if (tbIDLogInForm.Text != test)
+                test= Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDLogInForm.Text.Trim());
+                if (tbIDLogInForm.Text.Trim() != test)
                 {
                     MessageBox.Show("없는 아이디");
                 }
@@ -97,8 +84,6 @@ namespace ArtActionProject
             {
                 Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
                 this.Location = Point.Add(dragFormPoint, new Size(dif));
-                
-
             }
 
         }
