@@ -8,7 +8,7 @@ namespace ArtActionProject
 {
     static class Program
     {
-        // Version 1.7 
+        // Version 1.8 
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>

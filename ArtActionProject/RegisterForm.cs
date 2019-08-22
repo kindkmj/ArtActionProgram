@@ -47,7 +47,7 @@ namespace ArtActionProject
 
         private void BtnChecKedIDRegisterForm_Click(object sender, EventArgs e) //아이디 중복 체크 버튼
         {
-            if (tbIDRegisterForm.Text == "ID"||tbIDRegisterForm.Text.Trim()==string.Empty)
+            if (tbIDRegisterForm.Text.Trim() == "ID"||tbIDRegisterForm.Text.Trim()==string.Empty)
             {
                 MessageBox.Show("값을 입력해주세요");
                 return;
@@ -55,12 +55,12 @@ namespace ArtActionProject
             string test = "";
             try
             {
-                test = Entity.Select("ID", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text);
-                if (test.Trim() == tbIDRegisterForm.Text)
+                test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());
+                if (test.Trim() == tbIDRegisterForm.Text.Trim())
                 {
                     MessageBox.Show("아이디가 중복됩니다.");
                 }
-                else if (test.Trim() == tbIDRegisterForm.Text)
+                else if (test.Trim() != tbIDRegisterForm.Text.Trim())
                 {
                     MessageBox.Show("사용 가능한 아이디 입니다.");
                 }
