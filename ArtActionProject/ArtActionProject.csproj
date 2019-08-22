@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E8BA3168-CB33-402A-A20A-89FCA6E10A7C}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>ArtActionProject</RootNamespace>
     <AssemblyName>ArtActionProject</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectClientForm.Designer.cs">
+      <DependentUpon>ConnectClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomerInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +106,9 @@
     <Compile Include="TermsAndConditionForm.Designer.cs">
       <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConnectClientForm.resx">
+      <DependentUpon>ConnectClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerInfoForm.resx">
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
