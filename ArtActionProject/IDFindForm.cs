@@ -58,5 +58,24 @@ namespace ArtActionProject
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
         }
+
+        private void BtnEnterValueFindIDForm_Click(object sender, EventArgs e)
+        {
+            if (tbFindIDFindIDForm.Text.Trim() == "E-MAIL"|| tbFindIDFindIDForm.Text.Trim()==string.Empty)
+            {
+                MessageBox.Show("이메일 을 입력해주세요");
+                return;
+            }
+            string email = "";
+            email= Entity.Select("Email", tbFindIDFindIDForm.Text);
+            if (tbFindIDFindIDForm.Text.Trim() == email)
+            {
+                //메일 전송하는시스템 사용
+            }
+            else if (tbFindIDFindIDForm.Text.Trim() != email)
+            {
+                MessageBox.Show("등록된 이메일이 없습니다.");
+            }
+        }
     }
 }

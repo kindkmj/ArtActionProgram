@@ -115,6 +115,9 @@
     <EmbeddedResource Include="GuidForm.resx">
       <DependentUpon>GuidForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IDFindForm.resx">
+      <DependentUpon>IDFindForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +130,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PWFindForm.resx">
+      <DependentUpon>PWFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TermsAndConditionForm.resx">
       <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </EmbeddedResource>

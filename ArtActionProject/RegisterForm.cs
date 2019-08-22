@@ -22,17 +22,17 @@ namespace ArtActionProject
 
         private void BtnIDRegisterForm_Enter(object sender, EventArgs e)
         {
-            btnIDRegisterForm.Text = string.Empty;
+            tbIDRegisterForm.Text = string.Empty;
         }
 
         private void BtnPWRegisterForm_Enter(object sender, EventArgs e)
         {
-            btnPWRegisterForm.Text = string.Empty;
+            tbPWRegisterForm.Text = string.Empty;
         }
 
         private void BtnPWChecKedRegisterForm_Enter(object sender, EventArgs e)
         {
-            btnPWChecKedRegisterForm.Text = string.Empty;
+            tbPWChecKedRegisterForm.Text = string.Empty;
         }
 
         private void TbEmailRegisterForm_Enter(object sender, EventArgs e)
@@ -47,18 +47,53 @@ namespace ArtActionProject
 
         private void BtnChecKedIDRegisterForm_Click(object sender, EventArgs e) //아이디 중복 체크 버튼
         {
-            
+            if (tbIDRegisterForm.Text == "ID"||tbIDRegisterForm.Text.Trim()==string.Empty)
+            {
+                MessageBox.Show("값을 입력해주세요");
+                return;
+            }
+            string test = "";
+            try
+            {
+                test = Entity.Select("ID", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text);
+                if (test.Trim() == tbIDRegisterForm.Text)
+                {
+                    MessageBox.Show("아이디가 중복됩니다.");
+                }
+                else if (test.Trim() == tbIDRegisterForm.Text)
+                {
+                    MessageBox.Show("사용 가능한 아이디 입니다.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnSignRegisterForm_Click(object sender, EventArgs e)//회원가입 하는 버튼
         {
             try
-            {
-                MessageBox.Show("가입되었습니다");
-            
+            {//수정 및 보안 필요
+                if (tbIDRegisterForm.Text == "ID" || tbEmailRegisterForm.Text == "E.MAIL" ||
+                    tbPWRegisterForm.Text == "PassWord")
+                {
+                    MessageBox.Show("값을 입력해주세요");
+                    return;
+                }
+                if (Entity.DmlCase("I", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                {
+                    MessageBox.Show("가입되었습니다");
+                }
+                else
+                {
+                    MessageBox.Show("가입 실패.");
+                }
+
             }
-            catch (Exception )
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
             this.Close();
         }

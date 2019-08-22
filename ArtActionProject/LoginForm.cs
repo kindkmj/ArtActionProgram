@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,7 +44,37 @@ namespace ArtActionProject
 
         private void BtnLogInForm_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string test = "";
+                SqlConnection sqlConnection = new SqlConnection();
+                sqlConnection.ConnectionString =
+                    @"server=192.168.0.230\MSSQLSERVER,1433; database=customerinfo;uid=st;pwd=dkdlxl";
+                sqlConnection.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlConnection;
+                command.CommandText = $"select * from customer where id='{tbIDLogInForm.Text}'";
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    test = reader["ID"] as string;
+
+                }
+                reader.Close();
+                sqlConnection.Close();
+                if (tbIDLogInForm.Text != test)
+                {
+                    MessageBox.Show("없는 아이디");
+                }
+                else
+                {
+                    MessageBox.Show("로그인성공");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
    
