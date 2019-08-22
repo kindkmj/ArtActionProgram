@@ -11,7 +11,7 @@ namespace ArtActionProject
     public static class Entity
     {
         static SqlConnection conn;
-        static string dbInfo = @"Server=192.168.0.230\MSSQLSERVER,1433; database=customerinfo;uid=st;pwd=dkdlxl";
+        static string dbInfo = @"Server=192.168.0.209\MSSQLSERVER,1433; database=customerinfo;uid=st;pwd=dkdlxl";
       
         //연결
         public static SqlConnection CreateAndOpenConnection()
@@ -29,7 +29,7 @@ namespace ArtActionProject
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = CreateAndOpenConnection();
-                    cmd.CommandText = $"insert into customer(ID,PW,EMAIL,CARD_NUMBER) values ('{ID}','{PW}','{Email}','{CardNumber}')";
+                    cmd.CommandText = $"insert into CUSTOMER_INFO(ID,PW,EMAIL,CARD_NUMBER) values ('{ID}','{PW}','{Email}','{CardNumber}')";
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -51,7 +51,7 @@ namespace ArtActionProject
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = CreateAndOpenConnection();
-                cmd.CommandText = $"select ID,EMAIL from customer where id='{ID}'";
+                cmd.CommandText = $"select ID,EMAIL from CUSTOMER_INFO where id='{ID}'";
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (processCase == "ID")
                 {
@@ -78,7 +78,7 @@ namespace ArtActionProject
             using (SqlCommand cmd = new SqlCommand())
             {
                 cmd.Connection = CreateAndOpenConnection();
-                cmd.CommandText = $"select ID,EMAIL from customer where id='{ID}'";
+                cmd.CommandText = $"select ID,EMAIL from CUSTOMER_INFO where id='{ID}'";
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (processCase == "ID")
                 {
@@ -106,6 +106,26 @@ namespace ArtActionProject
             }
             return result;
         }
+
+        //Delete
+        //MainForm에서 채팅방 종료 버튼을 누르면 서버가 다운됨과 동시에 AuctionList에 있는 사람들 목록이 삭제
+        public static void Delete(string name)
+        {
+           
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandText = @"DELETE FROM CUSTOMER_INFO" + "\r\n" +
+                                      @"WHERE  = @이름";
+                    cmd.Parameters.AddWithValue("@이름", name);
+
+                    cmd.Connection = conn;
+                    int nRun = cmd.ExecuteNonQuery();
+                }
+
+            
+        }
+
 
         //INSERT
         //        public void Insert(string ID, string PW, string Email, string CardNumber)
