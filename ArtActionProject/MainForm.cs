@@ -147,6 +147,9 @@ namespace ArtActionProject
         private void clientConnect(string portN, int num)
         {
 
+            try
+
+            {
                 isRecv = true;
                 client =
                     new Socket(AddressFamily.InterNetwork,
@@ -164,7 +167,7 @@ namespace ArtActionProject
                 tRecv = new Thread(new ThreadStart(ThreadRecv));
                 tRecv.Start();
 
-                
+
 
 
                 btnExitChattingMainForm.Enabled = true;
@@ -176,7 +179,10 @@ namespace ArtActionProject
                 pbEnterViewImageMainForm6.Enabled = false;
 
                 MessageBox.Show(num + "번방에 입장하셨습니다");
-            
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
