@@ -75,6 +75,7 @@
             this.lbNoticeMainForm.Name = "lbNoticeMainForm";
             this.lbNoticeMainForm.Size = new System.Drawing.Size(469, 208);
             this.lbNoticeMainForm.TabIndex = 0;
+            this.lbNoticeMainForm.SelectedIndexChanged += new System.EventHandler(this.LbNoticeMainForm_SelectedIndexChanged);
             // 
             // tbSendingTextMainForm
             // 
@@ -102,6 +103,7 @@
             this.btnAmountMainForm.TabIndex = 3;
             this.btnAmountMainForm.Text = "금액보내기";
             this.btnAmountMainForm.UseVisualStyleBackColor = true;
+            this.btnAmountMainForm.Click += new System.EventHandler(this.BtnAmountMainForm_Click);
             // 
             // btnViewImageMainForm1
             // 
@@ -327,6 +329,7 @@
             this.lbChattingRoomMainForm.Name = "lbChattingRoomMainForm";
             this.lbChattingRoomMainForm.Size = new System.Drawing.Size(464, 256);
             this.lbChattingRoomMainForm.TabIndex = 20;
+            this.lbChattingRoomMainForm.SelectedIndexChanged += new System.EventHandler(this.LbChattingRoomMainForm_SelectedIndexChanged);
             // 
             // MainForm
             // 

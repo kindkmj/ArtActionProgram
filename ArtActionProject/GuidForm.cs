@@ -22,5 +22,13 @@ namespace ArtActionProject
             MessageBox.Show("이용약관 가이드를 중도 중지시키겠습니다");
             Application.Exit();
         }
+
+        private void BtnEnterGuideForm_Click(object sender, EventArgs e)
+        {
+            MainForm mf =new MainForm();
+            mf.Show();
+            this.Hide();
+
+        }
     }
 }

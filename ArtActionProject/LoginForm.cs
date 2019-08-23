@@ -13,7 +13,10 @@ namespace ArtActionProject
 {
     public partial class LoginForm : Form
     {
-        
+        //김보라
+       public static string sUID;
+   
+
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -36,6 +39,7 @@ namespace ArtActionProject
         private void TbIDLogInForm_Enter(object sender, EventArgs e)
         {
             tbIDLogInForm.Text = string.Empty;
+            
         }
 
         private void TbPWLogInForm_Enter(object sender, EventArgs e)
@@ -45,17 +49,26 @@ namespace ArtActionProject
 
         private void BtnLogInForm_Click(object sender, EventArgs e)
         {
+
+            GuidForm GF = new GuidForm();
+
             try
             {
                 string test = "";
                 test= Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDLogInForm.Text.Trim());
+                sUID = tbIDLogInForm.Text;
                 if (tbIDLogInForm.Text.Trim() != test)
                 {
-                    MessageBox.Show("없는 아이디");
+                    MessageBox.Show("존재하지 않는 아이디 입니다");
                 }
                 else
                 {
-                    MessageBox.Show("로그인성공");
+                   
+                    MessageBox.Show(sUID.ToString()+"로그인에 성공하셨습니다.");
+                    this.Visible = false;
+                    GF.Show();
+                  
+                   
                 }
             }
             catch (Exception ex)
@@ -105,6 +118,11 @@ namespace ArtActionProject
             PWFindForm pwFind = new PWFindForm();
             pwFind.ShowDialog();
             
+        }
+
+        private void TbIDLogInForm_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

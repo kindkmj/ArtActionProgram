@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectClientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConnectClientForm.Designer.cs">
-      <DependentUpon>ConnectClientForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomerInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +100,6 @@
     <Compile Include="TermsAndConditionForm.Designer.cs">
       <DependentUpon>TermsAndConditionForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConnectClientForm.resx">
-      <DependentUpon>ConnectClientForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CustomerInfoForm.resx">
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IDFindForm.resx">
       <DependentUpon>IDFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

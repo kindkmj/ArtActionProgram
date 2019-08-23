@@ -78,7 +78,7 @@ namespace ArtActionProject
                     {
                         cmd.Connection = CreateAndOpenConnection();
                         cmd.CommandText =
-                            $"insert into '{tableName}'({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
+                            $"insert into {tableName} ({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -91,7 +91,7 @@ namespace ArtActionProject
                     {
                         cmd.Connection = CreateAndOpenConnection();
                         cmd.CommandText =
-                            $"Update '{tableName}' set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}'";
+                            $"Update {tableName} set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}'";
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -136,23 +136,56 @@ namespace ArtActionProject
             return true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="tableState"></param>
-        /// <description>테이블 타입 입력 </description>
-        /// <param name="processCase"></param>
-        /// <description>어떤 경우인지 케이스 입력</description>
-        /// <param name="COLUMN_DATA0"></param>
-        /// <description>검색할 데이터 종류 입력 </description>
-        /// <param name="COLUMN_DATA1"></param>
-        /// <description>검색할 테이블 이름 입력 tablestatue와 겹치므로 추후 수정 예정사항 </description>
-        /// <param name="COLUMN_DATA2"></param>
-        /// <description>검색할 컬럼명</description>
-        /// <param name="COLUMN_DATA3"></param>
-        /// <description>검색할 데이터</description>
-        /// <returns></returns>
-        public static string Select(string tableState,string processCase,string COLUMN_DATA0=null, string COLUMN_DATA1 = null,string COLUMN_DATA2= null, string COLUMN_DATA3 = null)
+        public static bool DmlCase1(string processCase, string tableName, string COLUMN_DATA0,
+           int COLUMN_DATA1, string COLUMN_DATA2 = null, string COLUMN_DATA3 = null, string COLUMN_DATA4 = null, string COLUMN_DATA5 = null)
+        {
+            //insert
+            if (processCase == "I")
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
+                    cmd.CommandText =
+                        $"insert into {tableName} ({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            else if (processCase == "U") //update
+            {
+                //UPDATE [테이블] SET [열] = '변경할값' WHERE [조건]
+                //update auction set CONFIRMED_AMOUNT = '150' where user_name = 'kmj'
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
+                    cmd.CommandText =
+                        $"Update {tableName} set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}'";
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            return true;
+        }
+
+
+
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="tableState"></param>
+            /// <description>테이블 타입 입력 </description>
+            /// <param name="processCase"></param>
+            /// <description>어떤 경우인지 케이스 입력</description>
+            /// <param name="COLUMN_DATA0"></param>
+            /// <description>검색할 데이터 종류 입력 </description>
+            /// <param name="COLUMN_DATA1"></param>
+            /// <description>검색할 테이블 이름 입력 tablestatue와 겹치므로 추후 수정 예정사항 </description>
+            /// <param name="COLUMN_DATA2"></param>
+            /// <description>검색할 컬럼명</description>
+            /// <param name="COLUMN_DATA3"></param>
+            /// <description>검색할 데이터</description>
+            /// <returns></returns>
+            public static string Select(string tableState,string processCase,string COLUMN_DATA0=null, string COLUMN_DATA1 = null,string COLUMN_DATA2= null, string COLUMN_DATA3 = null)
         {
             string result = "";
             using (SqlCommand cmd = new SqlCommand())
@@ -195,6 +228,71 @@ namespace ArtActionProject
             }
             return result;
         }
+
+        public static void Delete(string tableState,string COLUMN_DATA0 =null,string COLUMN_DATA1= null)
+        {
+            try
+            {
+                string result = "";
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
+
+
+                    cmd.CommandText = $"DELETE FROM {tableState} WHERE {COLUMN_DATA0} = '{COLUMN_DATA1}'";
+                    // $"insert into {tableName} ({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
+                    //cmd.Parameters.AddWithValue($"{COLUMN_DATA0}={COLUMN_DATA1}");
+                    int nRun = cmd.ExecuteNonQuery();
+
+                    //cmd.ExecuteNonQuery();
+
+
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            
+        }
+
+        public static void Select(String COLUMN_DATA0,String COLUMN_DATA1,String COLUMN_DATA2)
+        {
+
+            try
+            {
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = conn;
+                //cmd.CommandText = $"SELECT USER_NAME,CONFIRMED_AMOUNT FROM AUCTION";
+                //int nRun = cmd.ExecuteNonQuery();
+
+                string result = "";
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
+
+
+                    cmd.CommandText = $"select {COLUMN_DATA0},{COLUMN_DATA1} from {COLUMN_DATA2}";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result = reader[$"{COLUMN_DATA0}:{COLUMN_DATA1}"] as string;
+                    }
+                    reader.Close();
+
+
+
+
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
+
 
     }     
 }
