@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="PWFindForm.resx">
       <DependentUpon>PWFindForm.cs</DependentUpon>
@@ -145,6 +146,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOGH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOGH2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GOGH3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Piccaso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piccaso2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piccaso3.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

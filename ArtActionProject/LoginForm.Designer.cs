@@ -40,7 +40,7 @@
             // 
             // btnLogInForm
             // 
-            this.btnLogInForm.Location = new System.Drawing.Point(138, 124);
+            this.btnLogInForm.Location = new System.Drawing.Point(243, 209);
             this.btnLogInForm.Name = "btnLogInForm";
             this.btnLogInForm.Size = new System.Drawing.Size(81, 63);
             this.btnLogInForm.TabIndex = 0;
@@ -51,7 +51,7 @@
             // tbIDLogInForm
             // 
             this.tbIDLogInForm.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbIDLogInForm.Location = new System.Drawing.Point(51, 31);
+            this.tbIDLogInForm.Location = new System.Drawing.Point(145, 94);
             this.tbIDLogInForm.Name = "tbIDLogInForm";
             this.tbIDLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbIDLogInForm.TabIndex = 1;
@@ -62,7 +62,7 @@
             // tbPWLogInForm
             // 
             this.tbPWLogInForm.ForeColor = System.Drawing.Color.DarkGray;
-            this.tbPWLogInForm.Location = new System.Drawing.Point(51, 83);
+            this.tbPWLogInForm.Location = new System.Drawing.Point(145, 132);
             this.tbPWLogInForm.Name = "tbPWLogInForm";
             this.tbPWLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbPWLogInForm.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // pbExitLogInForm
             // 
-            this.pbExitLogInForm.Location = new System.Drawing.Point(276, 31);
+            this.pbExitLogInForm.Location = new System.Drawing.Point(376, 83);
             this.pbExitLogInForm.Name = "pbExitLogInForm";
             this.pbExitLogInForm.Size = new System.Drawing.Size(62, 70);
             this.pbExitLogInForm.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // btnOpenResisterFormLogInForm
             // 
-            this.btnOpenResisterFormLogInForm.Location = new System.Drawing.Point(251, 125);
+            this.btnOpenResisterFormLogInForm.Location = new System.Drawing.Point(351, 209);
             this.btnOpenResisterFormLogInForm.Name = "btnOpenResisterFormLogInForm";
             this.btnOpenResisterFormLogInForm.Size = new System.Drawing.Size(87, 62);
             this.btnOpenResisterFormLogInForm.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             // btnFindIDLogInForm
             // 
-            this.btnFindIDLogInForm.Location = new System.Drawing.Point(40, 128);
+            this.btnFindIDLogInForm.Location = new System.Drawing.Point(118, 198);
             this.btnFindIDLogInForm.Name = "btnFindIDLogInForm";
             this.btnFindIDLogInForm.Size = new System.Drawing.Size(85, 26);
             this.btnFindIDLogInForm.TabIndex = 5;
@@ -100,7 +100,7 @@
             // 
             // btnFindPWLogInForm
             // 
-            this.btnFindPWLogInForm.Location = new System.Drawing.Point(40, 172);
+            this.btnFindPWLogInForm.Location = new System.Drawing.Point(118, 244);
             this.btnFindPWLogInForm.Name = "btnFindPWLogInForm";
             this.btnFindPWLogInForm.Size = new System.Drawing.Size(85, 27);
             this.btnFindPWLogInForm.TabIndex = 6;
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 211);
+            this.ClientSize = new System.Drawing.Size(666, 433);
             this.Controls.Add(this.btnFindPWLogInForm);
             this.Controls.Add(this.btnFindIDLogInForm);
             this.Controls.Add(this.btnOpenResisterFormLogInForm);
