@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ArtActionProject
+namespace ArtActionServer
 {
     static class Program
     {
-        // Version 2.1
+        public static string IP = "192.168.0.230";
+        public static string PORT = "9000";
         /// <summary>
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
@@ -17,7 +18,7 @@ namespace ArtActionProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new Server());
         }
     }
 }
