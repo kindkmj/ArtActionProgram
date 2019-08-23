@@ -100,6 +100,7 @@
             this.Name = "CustomerInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerInfoForm";
+            this.Load += new System.EventHandler(this.CustomerInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbBackGuideForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

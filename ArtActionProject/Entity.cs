@@ -69,9 +69,12 @@ namespace ArtActionProject
         /// <description>추가할 값 입력</description>
         /// <returns></returns>
         public static bool DmlCase(string processCase, string tableName, string COLUMN_DATA0,
-            string COLUMN_DATA1, string COLUMN_DATA2=null, string COLUMN_DATA3 = null,string COLUMN_DATA4=null,string COLUMN_DATA5=null)
+            string COLUMN_DATA1, string COLUMN_DATA2=null, string COLUMN_DATA3 = null,string COLUMN_DATA4=null,string COLUMN_DATA5=null, int type = 0)
         {
             //insert
+            if (type == 0)
+            {
+
                 if (processCase == "I")
                 {
                     using (SqlCommand cmd = new SqlCommand())
@@ -96,6 +99,25 @@ namespace ArtActionProject
                         return true;
                     }
                 }
+            }
+            else if (type == 1)
+            {
+                if (processCase == "U") //update
+                {
+                    //UPDATE [테이블] SET [열] = '변경할값' WHERE [조건]
+                    //update auction set CONFIRMED_AMOUNT = '150' where user_name = 'kmj'
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = CreateAndOpenConnection();
+                        cmd.CommandText =
+                            $"Update {tableName} set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}' and {COLUMN_DATA4} = '{COLUMN_DATA5}'";
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+
+
 //                else if (processCase == "D")
 //                {
 //                    using (SqlCommand cmd = new SqlCommand())
@@ -135,6 +157,8 @@ namespace ArtActionProject
 //            }
             return true;
         }
+
+      
 
         public static bool DmlCase1(string processCase, string tableName, string COLUMN_DATA0,
            int COLUMN_DATA1, string COLUMN_DATA2 = null, string COLUMN_DATA3 = null, string COLUMN_DATA4 = null, string COLUMN_DATA5 = null)
@@ -195,7 +219,7 @@ namespace ArtActionProject
                 {
                     if (processCase == FINDSELECT)
                     {
-                       
+                        //test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());  
                         cmd.CommandText = $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
@@ -256,9 +280,9 @@ namespace ArtActionProject
             
         }
 
-        public static void Select(String COLUMN_DATA0,String COLUMN_DATA1,String COLUMN_DATA2)
+        public static string Select(string COLUMN_DATA0, string COLUMN_DATA1)
         {
-
+            string result = "";
             try
             {
                 //SqlCommand cmd = new SqlCommand();
@@ -266,33 +290,59 @@ namespace ArtActionProject
                 //cmd.CommandText = $"SELECT USER_NAME,CONFIRMED_AMOUNT FROM AUCTION";
                 //int nRun = cmd.ExecuteNonQuery();
 
-                string result = "";
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = CreateAndOpenConnection();
 
-
-                    cmd.CommandText = $"select {COLUMN_DATA0},{COLUMN_DATA1} from {COLUMN_DATA2}";
+                    // where CHARECTERISTIC_ROOM = '1'
+                    cmd.CommandText = $"select {COLUMN_DATA0} as '{COLUMN_DATA0}' from {COLUMN_DATA1}";
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        result = reader[$"{COLUMN_DATA0}:{COLUMN_DATA1}"] as string;
+                        result = reader[$"{COLUMN_DATA0}"] as string;
                     }
+
                     reader.Close();
-
-
-
-
                 }
             }
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+            return result;
         }
+        public static string Select(string COLUMN_DATA0, string COLUMN_DATA1,string COLUMN_DATA2,string COLUMN_DATA3)
+        {
+            string result = "";
+            try
+            {
+                //SqlCommand cmd = new SqlCommand();
+                //cmd.Connection = conn;
+                //cmd.CommandText = $"SELECT USER_NAME,CONFIRMED_AMOUNT FROM AUCTION";
+                //int nRun = cmd.ExecuteNonQuery();
 
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
 
+                    // where CHARECTERISTIC_ROOM = '1'
+                    cmd.CommandText = $"select {COLUMN_DATA0} as '{COLUMN_DATA0}' from {COLUMN_DATA1} where {COLUMN_DATA2} = '{COLUMN_DATA3}'";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        result = reader[$"{COLUMN_DATA0}"] as string;
+                    }
 
+                    reader.Close();
+                }
+            }
 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
+        }
     }     
 }
