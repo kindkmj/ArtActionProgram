@@ -99,6 +99,7 @@
             this.Controls.Add(this.pbBackGuideForm);
             this.Name = "CustomerInfoForm";
             this.Text = "CustomerInfoForm";
+            this.Load += new System.EventHandler(this.CustomerInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbBackGuideForm)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

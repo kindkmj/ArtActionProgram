@@ -22,5 +22,10 @@ namespace ArtActionProject
         {
             this.Close();
         }
+
+        private void CustomerInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
