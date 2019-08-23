@@ -30,7 +30,7 @@ namespace ArtActionProject
         delegate void AddMsgData(string data);
         AddMsgData addMsgData = null;
 
-        ConnectClientForm CCF = new ConnectClientForm();
+        
 
         List<string> imageName1;
         List<string> imageName2;
@@ -43,6 +43,8 @@ namespace ArtActionProject
         bool bChange = true;
 
         private Point mousePoint;
+
+        LoginForm LF = new LoginForm();
 
         public MainForm()
         {
@@ -90,20 +92,10 @@ namespace ArtActionProject
             ///MainForm 시작하는 부분 사이즈 seting 값
             this.Size = new Size(640,650);
 
+            addMsgData = AddtbChattingRoomMainForm;
+
         }
 
-        void ProcessPacket(string recvData)
-        {
-            string[] datas = recvData.Split(new char[] { '|' });
-
-            switch(datas[0])
-            {
-                case "C":
-                    AddtbChattingRoomMainForm("<채팅수신>:" + recvData);
-                    AddtbChattingRoomMainForm(datas[1]);
-                    break;                    
-            }
-        }
 
         void AddtbChattingRoomMainForm(string data)
         {
@@ -127,9 +119,15 @@ namespace ArtActionProject
             {
                 try
                 {
+                    
+                  
                     string data = sr.ReadLine();
-                    ProcessPacket(data);
-                }catch(Exception ex)
+                    
+                    //ProcessPacket(data);
+                    //ThreadRecv(data);
+                    AddtbChattingRoomMainForm("<수신> : " + data);
+                }
+                catch(Exception ex)
                 {
                     AddtbChattingRoomMainForm("Exception :" + ex.Message);
                     btnExitChattingMainForm.Enabled = false;
@@ -155,9 +153,14 @@ namespace ArtActionProject
                     new Socket(AddressFamily.InterNetwork,
                     SocketType.Stream, ProtocolType.Tcp);
 
-                ipep =
-                    new IPEndPoint(IPAddress.Parse("192.168.0.230"),
+               
+                    ipep =
+                    new IPEndPoint(IPAddress.Parse("127.0.0.1"),
                     Int32.Parse(portN));
+
+                //ipep =
+                //    new IPEndPoint(IPAddress.Parse("192.168.0.230"),
+                //    Int32.Parse(portN));
                 Console.WriteLine("서버 접속 시도 ...");
                 client.Connect(ipep);
                 Console.WriteLine("서버 접속 완료");
@@ -166,9 +169,6 @@ namespace ArtActionProject
 
                 tRecv = new Thread(new ThreadStart(ThreadRecv));
                 tRecv.Start();
-
-
-
 
                 btnExitChattingMainForm.Enabled = true;
                 pbEnterViewImageMainForm1.Enabled = false;
@@ -192,6 +192,7 @@ namespace ArtActionProject
         //종료버튼
         private void PbExitMainForm_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
             MessageBox.Show("프로그램을 종료시키겠습니다");
             Application.Exit();
         }
@@ -230,36 +231,102 @@ namespace ArtActionProject
             clientConnect("9000",1);
             this.Size = new Size(1130, 650);
 
+            try
+            {
+               
+             Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT",1.ToString(),LoginForm.sUID,"0");
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void PbEnterViewImageMainForm2_Click(object sender, EventArgs e)
         {
             
             clientConnect("9001",2);
+            this.Size = new Size(1130, 650);
+            try
+            {
+
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 2.ToString(), LoginForm.sUID, "0");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PbEnterViewImageMainForm3_Click(object sender, EventArgs e)
         {
           
             clientConnect("9002",3);
+            this.Size = new Size(1130, 650);
+            try
+            {
+
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 3.ToString(), LoginForm.sUID, "0");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PbEnterViewImageMainForm4_Click(object sender, EventArgs e)
         {
             
             clientConnect("9003",4);
+            this.Size = new Size(1130, 650);
+            try
+            {
+
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 4.ToString(), LoginForm.sUID, "0");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void PbEnterViewImageMainForm5_Click(object sender, EventArgs e)
         {
         
             clientConnect("9004",5);
+            this.Size = new Size(1130, 650);
+            try
+            {
+
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 5.ToString(), LoginForm.sUID, "0");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void PbEnterViewImageMainForm6_Click(object sender, EventArgs e)
         {
 
             clientConnect("9005",6);
+            this.Size = new Size(1130, 650);
+            try
+            {
+
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 6.ToString(), LoginForm.sUID, "0");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -276,9 +343,11 @@ namespace ArtActionProject
                 if (client != null && client.Connected)
                     client.Close();
                 Console.WriteLine("접속이 끊겼습니다");
-            }catch(Exception ex)
+
+
+            } catch (Exception ex)
             {
-                AddtbChattingRoomMainForm("Exception:"+ex.Message);
+                AddtbChattingRoomMainForm("Exception:" + ex.Message);
             }
             finally
             {
@@ -290,7 +359,14 @@ namespace ArtActionProject
                 pbEnterViewImageMainForm5.Enabled = true;
                 pbEnterViewImageMainForm6.Enabled = true;
             }
-        }
+            try
+            {
+                Entity.Delete("AUCTION", "USER_NAME", LoginForm.sUID);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            }
 
         private void MainForm_Load_1(object sender, EventArgs e)
         {
@@ -349,6 +425,47 @@ namespace ArtActionProject
                     tbSendingTextMainForm.Clear();
                     break;
             }
+        }
+
+        private void LbChattingRoomMainForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //한번 클릭 할때 마다 50만원씩 
+        private void BtnAmountMainForm_Click(object sender, EventArgs e)
+        {
+            // bool a = true;
+
+           
+                Entity.DmlCase1("U", "AUCTION", "CONFIRMED_AMOUNT", 80, "USER_NAME", LoginForm.sUID);
+            
+
+           
+            //else
+
+
+
+
+            //// int i = 1;
+            //flag = true;
+           
+            //    if (flag = true)
+            //    {
+               
+               
+            //        flag = false;
+            //    i++;
+            //}
+                
+            
+            
+        }
+
+        private void LbNoticeMainForm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Entity.Select("USER_NAME", "CONFIRMED_AMOUN", "AUCTION");
         }
     }
 }

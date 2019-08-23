@@ -105,6 +105,7 @@
             this.tbPWRegisterForm.Size = new System.Drawing.Size(204, 21);
             this.tbPWRegisterForm.TabIndex = 2;
             this.tbPWRegisterForm.Text = "PassWord";
+            this.tbPWRegisterForm.TextChanged += new System.EventHandler(this.TbPWRegisterForm_TextChanged);
             this.tbPWRegisterForm.Enter += new System.EventHandler(this.BtnPWRegisterForm_Enter);
             // 
             // RegisterForm

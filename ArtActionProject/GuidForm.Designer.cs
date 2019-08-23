@@ -44,6 +44,7 @@
             this.btnEnterGuideForm.TabIndex = 0;
             this.btnEnterGuideForm.Text = "사용방법을 이해했습니다";
             this.btnEnterGuideForm.UseVisualStyleBackColor = true;
+            this.btnEnterGuideForm.Click += new System.EventHandler(this.BtnEnterGuideForm_Click);
             // 
             // label1
             // 

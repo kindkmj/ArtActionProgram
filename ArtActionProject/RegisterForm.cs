@@ -64,6 +64,8 @@ namespace ArtActionProject
                 {
                     MessageBox.Show("사용 가능한 아이디 입니다.");
                 }
+                
+
             }
             catch (Exception ex)
             {
@@ -81,14 +83,22 @@ namespace ArtActionProject
                     MessageBox.Show("값을 입력해주세요");
                     return;
                 }
-                if (Entity.DmlCase("I", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                
+
+                if (Entity.DmlCase("I", "CUSTOMER_INFO", "ID", "PW", "EMAIL", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
                 {
                     MessageBox.Show("가입되었습니다");
+
+                    if (tbPWChecKedRegisterForm.Text == tbPWRegisterForm.Text)
+                    {
+                        MessageBox.Show("비밀번호를 같게 입력해주세요.");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("가입 실패.");
                 }
+                
 
             }
             catch (Exception ex)
@@ -119,6 +129,11 @@ namespace ArtActionProject
             dragging = true;
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
+        }
+
+        private void TbPWRegisterForm_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

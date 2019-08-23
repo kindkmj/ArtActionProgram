@@ -56,6 +56,7 @@
             this.tbIDLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbIDLogInForm.TabIndex = 1;
             this.tbIDLogInForm.Text = "ID";
+            this.tbIDLogInForm.TextChanged += new System.EventHandler(this.TbIDLogInForm_TextChanged);
             this.tbIDLogInForm.Enter += new System.EventHandler(this.TbIDLogInForm_Enter);
             // 
             // tbPWLogInForm
