@@ -10,25 +10,18 @@ using System.Windows.Forms;
 
 namespace ArtActionProject
 {
-    public partial class GuidForm : Form
+    public partial class GuideForm : Form
     {
-        public GuidForm()
+        public GuideForm()
         {
             InitializeComponent();
         }
 
-        private void PbBackGuideForm_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("이용약관 가이드를 중도 중지시키겠습니다");
-            Application.Exit();
-        }
-
         private void BtnEnterGuideForm_Click(object sender, EventArgs e)
         {
-            MainForm mf =new MainForm();
-            mf.Show();
-            this.Hide();
-
+            MainForm MF = new MainForm();
+            MF.Show();
+            this.Close();
         }
     }
 }

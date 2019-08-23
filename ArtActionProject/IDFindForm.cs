@@ -82,5 +82,10 @@ namespace ArtActionProject
         {
 
         }
+
+        private void IDFindForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

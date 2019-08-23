@@ -50,7 +50,7 @@ namespace ArtActionProject
         private void BtnLogInForm_Click(object sender, EventArgs e)
         {
 
-            GuidForm GF = new GuidForm();
+            GuideForm GF = new GuideForm();
 
             try
             {
@@ -129,6 +129,11 @@ namespace ArtActionProject
         }
 
         private void TbIDLogInForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
         {
 
         }

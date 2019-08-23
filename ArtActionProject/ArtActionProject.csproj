@@ -56,11 +56,11 @@
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Entity.cs" />
-    <Compile Include="GuidForm.cs">
+    <Compile Include="GuideForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GuidForm.Designer.cs">
-      <DependentUpon>GuidForm.cs</DependentUpon>
+    <Compile Include="GuideForm.Designer.cs">
+      <DependentUpon>GuideForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IDFindForm.cs">
       <SubType>Form</SubType>
@@ -103,8 +103,8 @@
     <EmbeddedResource Include="CustomerInfoForm.resx">
       <DependentUpon>CustomerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GuidForm.resx">
-      <DependentUpon>GuidForm.cs</DependentUpon>
+    <EmbeddedResource Include="GuideForm.resx">
+      <DependentUpon>GuideForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IDFindForm.resx">
       <DependentUpon>IDFindForm.cs</DependentUpon>

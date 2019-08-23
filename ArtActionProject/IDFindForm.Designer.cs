@@ -50,7 +50,7 @@
             this.btnEnterValueFindIDForm.Location = new System.Drawing.Point(261, 227);
             this.btnEnterValueFindIDForm.Name = "btnEnterValueFindIDForm";
             this.btnEnterValueFindIDForm.Size = new System.Drawing.Size(143, 41);
-            this.btnEnterValueFindIDForm.TabIndex = 0;
+            this.btnEnterValueFindIDForm.TabIndex = 2;
             this.btnEnterValueFindIDForm.Text = "E-Mail Me";
             this.btnEnterValueFindIDForm.UseVisualStyleBackColor = false;
             this.btnEnterValueFindIDForm.Click += new System.EventHandler(this.BtnEnterValueFindIDForm_Click);
@@ -61,7 +61,7 @@
             this.tbFindIDFindIDForm.Location = new System.Drawing.Point(223, 184);
             this.tbFindIDFindIDForm.Name = "tbFindIDFindIDForm";
             this.tbFindIDFindIDForm.Size = new System.Drawing.Size(220, 21);
-            this.tbFindIDFindIDForm.TabIndex = 3;
+            this.tbFindIDFindIDForm.TabIndex = 1;
             this.tbFindIDFindIDForm.Text = "E-Mail";
             this.tbFindIDFindIDForm.TextChanged += new System.EventHandler(this.TbFindIDFindIDForm_TextChanged);
             this.tbFindIDFindIDForm.Enter += new System.EventHandler(this.TbFindIDFindIDForm_Enter);
@@ -145,6 +145,7 @@
             this.Name = "IDFindForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IDFindForm";
+            this.Load += new System.EventHandler(this.IDFindForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.IDFindForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.IDFindForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.IDFindForm_MouseUp);

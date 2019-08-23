@@ -50,11 +50,12 @@
             this.btnLogInForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogInForm.BackgroundImage")));
             this.btnLogInForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogInForm.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogInForm.Location = new System.Drawing.Point(435, 131);
+            this.btnLogInForm.Location = new System.Drawing.Point(449, 116);
             this.btnLogInForm.Name = "btnLogInForm";
             this.btnLogInForm.Size = new System.Drawing.Size(180, 63);
-            this.btnLogInForm.TabIndex = 0;
+            this.btnLogInForm.TabIndex = 3;
             this.btnLogInForm.Text = "LOGIN";
+            this.btnLogInForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogInForm.UseVisualStyleBackColor = false;
             this.btnLogInForm.Click += new System.EventHandler(this.BtnLogInForm_Click);
             // 
@@ -97,7 +98,7 @@
             this.btnOpenResisterFormLogInForm.Location = new System.Drawing.Point(319, 260);
             this.btnOpenResisterFormLogInForm.Name = "btnOpenResisterFormLogInForm";
             this.btnOpenResisterFormLogInForm.Size = new System.Drawing.Size(143, 41);
-            this.btnOpenResisterFormLogInForm.TabIndex = 4;
+            this.btnOpenResisterFormLogInForm.TabIndex = 6;
             this.btnOpenResisterFormLogInForm.Text = "Register";
             this.btnOpenResisterFormLogInForm.UseVisualStyleBackColor = false;
             this.btnOpenResisterFormLogInForm.Click += new System.EventHandler(this.BtnOpenRegisterFormLogInForm_Click);
@@ -111,7 +112,7 @@
             this.btnFindIDLogInForm.Location = new System.Drawing.Point(95, 267);
             this.btnFindIDLogInForm.Name = "btnFindIDLogInForm";
             this.btnFindIDLogInForm.Size = new System.Drawing.Size(85, 26);
-            this.btnFindIDLogInForm.TabIndex = 5;
+            this.btnFindIDLogInForm.TabIndex = 4;
             this.btnFindIDLogInForm.Text = "Forgot ID";
             this.btnFindIDLogInForm.UseVisualStyleBackColor = false;
             this.btnFindIDLogInForm.Click += new System.EventHandler(this.BtnFindIDLogInForm_Click);
@@ -125,7 +126,7 @@
             this.btnFindPWLogInForm.Location = new System.Drawing.Point(186, 267);
             this.btnFindPWLogInForm.Name = "btnFindPWLogInForm";
             this.btnFindPWLogInForm.Size = new System.Drawing.Size(85, 27);
-            this.btnFindPWLogInForm.TabIndex = 6;
+            this.btnFindPWLogInForm.TabIndex = 5;
             this.btnFindPWLogInForm.Text = "Forgot PW";
             this.btnFindPWLogInForm.UseVisualStyleBackColor = false;
             this.btnFindPWLogInForm.Click += new System.EventHandler(this.BtnFindPWLogInForm_Click);

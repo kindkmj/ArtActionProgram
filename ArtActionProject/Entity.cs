@@ -344,5 +344,22 @@ namespace ArtActionProject
             }
             return result;
         }
+        public static void Select1()
+        {
+            try
+            {
+                using(SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = CreateAndOpenConnection();
+
+                    cmd.CommandText = $"Select count(*) Auction";
+                }
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }     
 }

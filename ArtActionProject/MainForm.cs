@@ -408,15 +408,20 @@ namespace ArtActionProject
             }
         }
 
-        //한번 클릭 할때 마다 50만원씩 
+        //한번 클릭 할때 마다 80만원씩 
         private void BtnAmountMainForm_Click(object sender, EventArgs e)
         {
             int num = 0;
+          
+
             try
             {
                 num = Int32.Parse(label9.Text.Remove(0, 9)) + 80;
-                Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", "kmj",
+
+                Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", LoginForm.sUID,
                     "CHARECTERISTIC_ROOM", iroomNumber.ToString(), 1);
+
+                
             }
             catch (Exception ex)
             {
