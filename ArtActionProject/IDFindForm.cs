@@ -77,5 +77,10 @@ namespace ArtActionProject
                 MessageBox.Show("등록된 이메일이 없습니다.");
             }
         }
+
+        private void TbFindIDFindIDForm_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

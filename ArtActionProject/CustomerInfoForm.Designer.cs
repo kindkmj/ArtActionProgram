@@ -98,6 +98,7 @@
             this.Controls.Add(this.ID);
             this.Controls.Add(this.pbBackGuideForm);
             this.Name = "CustomerInfoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerInfoForm";
             ((System.ComponentModel.ISupportInitialize)(this.pbBackGuideForm)).EndInit();
             this.ResumeLayout(false);

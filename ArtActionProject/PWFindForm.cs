@@ -92,5 +92,15 @@ namespace ArtActionProject
                 MessageBox.Show("등록된 이메일이 없습니다.");
             }
         }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

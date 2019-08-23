@@ -15,9 +15,14 @@ namespace ArtActionProject
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+
+        private bool bcheckedId = false;
+
+
         public RegisterForm()
         {
             InitializeComponent();
+            
         }
 
         private void BtnIDRegisterForm_Enter(object sender, EventArgs e)
@@ -56,6 +61,7 @@ namespace ArtActionProject
             try
             {
                 test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());
+
                 if (test.Trim() == tbIDRegisterForm.Text.Trim())
                 {
                     MessageBox.Show("아이디가 중복됩니다.");
@@ -75,37 +81,52 @@ namespace ArtActionProject
 
         private void BtnSignRegisterForm_Click(object sender, EventArgs e)//회원가입 하는 버튼
         {
+
+
             try
             {//수정 및 보안 필요
-                if (tbIDRegisterForm.Text == "ID" || tbEmailRegisterForm.Text == "E.MAIL" ||
-                    tbPWRegisterForm.Text == "PassWord")
-                {
-                    MessageBox.Show("값을 입력해주세요");
-                    return;
-                }
-                
 
-                if (Entity.DmlCase("I", "CUSTOMER_INFO", "ID", "PW", "EMAIL", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                if (cbResisterForm.Checked == true)
                 {
-                    MessageBox.Show("가입되었습니다");
-
                     if (tbPWChecKedRegisterForm.Text == tbPWRegisterForm.Text)
                     {
-                        MessageBox.Show("비밀번호를 같게 입력해주세요.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("가입 실패.");
-                }
-                
 
+                        if (tbIDRegisterForm.Text == "ID" || tbEmailRegisterForm.Text == "E.MAIL" ||
+                        tbPWRegisterForm.Text == "PassWord")
+                        {
+                            MessageBox.Show("값을 입력해주세요");
+                            return;
+                        }
+                        if (Entity.DmlCase("I", "CUSTOMER_INFO", "ID", "PW", "EMAIL", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                        {
+
+                            MessageBox.Show("가입되었습니다");
+                            this.Close();
+                           
+                        }
+                        else
+                        {
+                            MessageBox.Show("가입에 실패하였습니다.");
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("비밀번호를 같게 입력해주세요");
+                    }
+
+
+                }
+                else if (cbResisterForm.Checked == false)
+                {
+                    MessageBox.Show("이용약관을 체크해 주세요.");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            this.Close();
+            
         }
 
         private void RegisterForm_MouseUp(object sender, MouseEventArgs e)
@@ -135,5 +156,31 @@ namespace ArtActionProject
         {
 
         }
+
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbResisterForm_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if(cbResisterForm.Checked == true)
+            {
+                btnSignRegisterForm.Enabled =true;
+            }
+            else if(cbResisterForm.Checked == false)
+            {
+                btnSignRegisterForm.Enabled = false;
+            }
+        }
+
+        private void BtnTermAndConditionResisterForm_Click(object sender, EventArgs e)
+        {
+            TermsAndConditionForm TACF = new TermsAndConditionForm();
+            TACF.Show();
+        }
+
+  
     }
 }
