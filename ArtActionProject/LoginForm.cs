@@ -13,7 +13,6 @@ namespace ArtActionProject
 {
     public partial class LoginForm : Form
     {
-        
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
@@ -45,6 +44,7 @@ namespace ArtActionProject
 
         private void BtnLogInForm_Click(object sender, EventArgs e)
         {
+            GuidForm gf = new GuidForm();
             try
             {
                 string test = "";
@@ -56,6 +56,8 @@ namespace ArtActionProject
                 else
                 {
                     MessageBox.Show("로그인성공");
+                    gf.Show();
+                    this.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -65,6 +67,8 @@ namespace ArtActionProject
         }
 
    
+
+
         private void BtnOpenRegisterFormLogInForm_Click(object sender, EventArgs e)
         {
             RegisterForm register = new RegisterForm();

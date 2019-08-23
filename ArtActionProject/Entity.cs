@@ -78,7 +78,7 @@ namespace ArtActionProject
                     {
                         cmd.Connection = CreateAndOpenConnection();
                         cmd.CommandText =
-                            $"insert into '{tableName}'({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
+                            $"insert into {tableName} ({COLUMN_DATA0},{COLUMN_DATA1},{COLUMN_DATA2}) values ('{COLUMN_DATA3}','{COLUMN_DATA4}','{COLUMN_DATA5}')";
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -91,7 +91,7 @@ namespace ArtActionProject
                     {
                         cmd.Connection = CreateAndOpenConnection();
                         cmd.CommandText =
-                            $"Update '{tableName}' set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}'";
+                            $"Update {tableName} set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} ='{COLUMN_DATA3}'";
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -162,7 +162,7 @@ namespace ArtActionProject
                 {
                     if (processCase == FINDSELECT)
                     {
-                       
+                        //test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());  
                         cmd.CommandText = $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
