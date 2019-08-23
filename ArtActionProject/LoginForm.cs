@@ -14,7 +14,7 @@ namespace ArtActionProject
     public partial class LoginForm : Form
     {
         //김보라
-       public static string sUID;
+       public static string sUID="";
    
 
         private bool dragging = false;
@@ -57,6 +57,7 @@ namespace ArtActionProject
                 string test = "";
                 test= Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDLogInForm.Text.Trim());
                 sUID = tbIDLogInForm.Text;
+
                 if (tbIDLogInForm.Text.Trim() != test)
                 {
                     MessageBox.Show("존재하지 않는 아이디 입니다");
@@ -66,9 +67,17 @@ namespace ArtActionProject
                    
                     MessageBox.Show(sUID.ToString()+"로그인에 성공하셨습니다.");
                     this.Visible = false;
-                    GF.Show();
-                  
-                   
+                    if (LoginForm.sUID.Trim().ToUpper() == "ADMIN")
+                    {
+                        MainForm mf = new MainForm();
+                        mf.Show();
+                    }
+                    else
+                    {
+                        GF.Show();
+                    }
+
+
                 }
             }
             catch (Exception ex)

@@ -22,7 +22,7 @@ namespace ArtActionProject
         public RegisterForm()
         {
             InitializeComponent();
-            
+
         }
 
         private void BtnIDRegisterForm_Enter(object sender, EventArgs e)
@@ -52,15 +52,16 @@ namespace ArtActionProject
 
         private void BtnChecKedIDRegisterForm_Click(object sender, EventArgs e) //아이디 중복 체크 버튼
         {
-            if (tbIDRegisterForm.Text.Trim() == "ID"||tbIDRegisterForm.Text.Trim()==string.Empty)
+            if (tbIDRegisterForm.Text.Trim() == "ID" || tbIDRegisterForm.Text.Trim() == string.Empty)
             {
-                MessageBox.Show("값을 입력해주세요");
+                MessageBox.Show("아이디를 입력해주세요");
                 return;
             }
+
             string test = "";
             try
             {
-                test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());
+                test = Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());
 
                 if (test.Trim() == tbIDRegisterForm.Text.Trim())
                 {
@@ -69,9 +70,8 @@ namespace ArtActionProject
                 else if (test.Trim() != tbIDRegisterForm.Text.Trim())
                 {
                     MessageBox.Show("사용 가능한 아이디 입니다.");
+                    bcheckedId = true;
                 }
-                
-
             }
             catch (Exception ex)
             {
@@ -79,43 +79,43 @@ namespace ArtActionProject
             }
         }
 
-        private void BtnSignRegisterForm_Click(object sender, EventArgs e)//회원가입 하는 버튼
+        private void BtnSignRegisterForm_Click(object sender, EventArgs e) //회원가입 하는 버튼
         {
-
-
             try
-            {//수정 및 보안 필요
-
-                if (cbResisterForm.Checked == true)
+            {
+                //수정 및 보안 필요
+                if (bcheckedId == true)
                 {
-                    if (tbPWChecKedRegisterForm.Text == tbPWRegisterForm.Text)
+                    if (cbResisterForm.Checked == true)
                     {
-
-                        if (tbIDRegisterForm.Text == "ID" || tbEmailRegisterForm.Text == "E.MAIL" ||
-                        tbPWRegisterForm.Text == "PassWord")
+                        if (tbPWChecKedRegisterForm.Text == tbPWRegisterForm.Text)
                         {
-                            MessageBox.Show("값을 입력해주세요");
-                            return;
+                            if (tbIDRegisterForm.Text == "ID" || tbEmailRegisterForm.Text == "E.MAIL" ||
+                                tbPWRegisterForm.Text == "PassWord")
+                            {
+                                MessageBox.Show("값을 입력해주세요");
+                                return;
+                            }
+                            if (Entity.DmlCase("I", "CUSTOMER_INFO", "ID", "PW", "EMAIL", tbIDRegisterForm.Text,
+                                    tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                            {
+                                MessageBox.Show("가입되었습니다");
+                                this.Close();
+                            }
                         }
-                        if (Entity.DmlCase("I", "CUSTOMER_INFO", "ID", "PW", "EMAIL", tbIDRegisterForm.Text, tbPWRegisterForm.Text, tbEmailRegisterForm.Text) == true)
+                        else if (bcheckedId == false)
                         {
-
-                            MessageBox.Show("가입되었습니다");
-                            this.Close();
-                           
+                            MessageBox.Show("아이디를 중복 체크해 주세요");
                         }
                         else
                         {
-                            MessageBox.Show("가입에 실패하였습니다.");
-
+                            MessageBox.Show("비밀번호를 같게 입력해주세요.");
                         }
                     }
                     else
                     {
                         MessageBox.Show("비밀번호를 같게 입력해주세요");
                     }
-
-
                 }
                 else if (cbResisterForm.Checked == false)
                 {
@@ -126,22 +126,18 @@ namespace ArtActionProject
             {
                 MessageBox.Show(ex.Message);
             }
-            
         }
 
         private void RegisterForm_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
         }
-
         private void RegisterForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
             {
                 Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
                 this.Location = Point.Add(dragFormPoint, new Size(dif));
-
-
             }
         }
 
@@ -161,26 +157,27 @@ namespace ArtActionProject
         {
 
         }
-
+        
         private void CbResisterForm_CheckedChanged(object sender, EventArgs e)
         {
-            
-            if(cbResisterForm.Checked == true)
+            if (cbResisterForm.Checked == true)
             {
-                btnSignRegisterForm.Enabled =true;
+                btnSignRegisterForm.Enabled = true;
             }
-            else if(cbResisterForm.Checked == false)
+            else if (cbResisterForm.Checked == false)
             {
                 btnSignRegisterForm.Enabled = false;
             }
         }
-
         private void BtnTermAndConditionResisterForm_Click(object sender, EventArgs e)
         {
             TermsAndConditionForm TACF = new TermsAndConditionForm();
             TACF.Show();
         }
 
-  
+        private void TbIDRegisterForm_TextChanged(object sender, EventArgs e)
+        {
+            bcheckedId = false;
+        }
     }
 }

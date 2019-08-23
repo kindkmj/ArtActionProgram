@@ -91,7 +91,7 @@
             this.tbIDRegisterForm.Size = new System.Drawing.Size(204, 21);
             this.tbIDRegisterForm.TabIndex = 1;
             this.tbIDRegisterForm.Text = "ID";
-
+            this.tbIDRegisterForm.TextChanged += new System.EventHandler(this.TbIDRegisterForm_TextChanged);
             this.tbIDRegisterForm.Enter += new System.EventHandler(this.BtnIDRegisterForm_Enter);
             // 
             // tbEmailRegisterForm
