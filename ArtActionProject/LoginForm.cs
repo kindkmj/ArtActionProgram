@@ -132,7 +132,7 @@ namespace ArtActionProject
         {
             RegisterForm register = new RegisterForm();
             register.Show();
-            
+            this.Hide();
         }
 
         private void LoginForm_MouseDown(object sender, MouseEventArgs e)

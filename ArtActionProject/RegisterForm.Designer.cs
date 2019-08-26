@@ -201,7 +201,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "KLJ";
             this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegisterForm_MouseDown);

@@ -113,6 +113,11 @@ namespace ArtActionProject
                         AddtbChattingRoomMainForm(data);
                     }
 
+                    if (data.StartsWith("입찰"))
+                    {
+                        lbNoticeMainForm.Items.Add(data);
+                    }
+
                     if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
                     {
                         checkedData(data);
@@ -145,7 +150,7 @@ namespace ArtActionProject
             {
                 try
                 {
-                    string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", "SELECT MAX(CONFIRMED_AMOUNT) FROM AUCTION");
+                    string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", "SELECT MAX(CONFIRMED_AMOUNT) FROM AUCTION","any");
                     btnAmountMainForm.Enabled = false;
                     MessageBox.Show("경매 낙찰자는 " + winning + " 이며 " + label9.Text + " 금액 으로 낙찰 되셨습니다.");
                     lbNoticeMainForm.Items.Clear();
@@ -412,6 +417,8 @@ namespace ArtActionProject
                 num = Int32.Parse(label9.Text.Remove(0, 9)) + 80;
                 Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", LoginForm.sUID.Trim().ToUpper(),
                     "CHARECTERISTIC_ROOM", iroomNumber.ToString(), 1);
+                sw.WriteLine("입찰자 = "+LoginForm.sUID + ": " + "금액은 = "+num);
+                sw.Flush(); //즉시 발송한다.
             }
             catch (Exception ex)
             {
