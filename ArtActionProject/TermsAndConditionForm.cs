@@ -28,6 +28,9 @@ namespace ArtActionProject
         //checkedBox_모두 동의 하는 칸
         private void CkTermsAndConditionsFormAll_CheckedChanged(object sender, EventArgs e)
         {
+            ///김보라
+            //ckTermsAndConditionsFormAll이 check되었을 경우 그외의 
+            //나머지 ckBox가 다 true가 되게 하는 부분
             try
             {
                 if (ckTermsAndConditionsFormAll.Checked = true)
@@ -57,6 +60,11 @@ namespace ArtActionProject
 
         private void BtnAgreeTermsAndConditionForm_Click(object sender, EventArgs e)
         {
+            ///김보라
+            ///btnAgreeTermsAndConditionsForm의 버튼을 눌렀을때
+            ///ckBox가 한개라도 안되어 있을 경우 messageBox를 생성해
+            ///사용자에게 오류를 알려주고 TermsAndConditionForm이 사라지는
+            ///이벤트를 진행되지 않게 한다
             if(ckTermsAndConditionForm1.Checked == false)
             {
                 MessageBox.Show("필수 1번째 조항에 동의해주세요");
