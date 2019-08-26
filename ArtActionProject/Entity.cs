@@ -249,6 +249,7 @@ namespace ArtActionProject
                         }
                         else
                         {
+                           
                             cmd.CommandText =
                                 $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}={COLUMN_DATA3}";
                         }
@@ -360,7 +361,7 @@ namespace ArtActionProject
                 {
                     cmd.Connection = CreateAndOpenConnection();
 
-                    // where CHARECTERISTIC_ROOM = '1'
+                    
                     cmd.CommandText = $"select {COLUMN_DATA0} as '{COLUMN_DATA0}' from {COLUMN_DATA1} where {COLUMN_DATA2} = '{COLUMN_DATA3}'";
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())

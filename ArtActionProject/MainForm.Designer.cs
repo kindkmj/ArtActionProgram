@@ -68,8 +68,6 @@
             this.clbRoomCheck = new System.Windows.Forms.CheckedListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.lbRoomNumInfoMainForm = new System.Windows.Forms.Label();
             this.btnEndAuctionMainForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).BeginInit();
@@ -582,8 +580,6 @@
         private System.Windows.Forms.CheckedListBox clbRoomCheck;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Label lbRoomNumInfoMainForm;
         private System.Windows.Forms.Button btnEndAuctionMainForm;
     }
