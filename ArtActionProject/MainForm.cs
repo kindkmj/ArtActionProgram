@@ -33,6 +33,11 @@ namespace ArtActionProject
 
         AddMsgData addMsgData = null;
 
+        //폼 클릭시 이동하는데 필요한 요소
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
         private int roomTimer1 = 0;
         private int roomTimer2 = 0;
         private int roomTimer3 = 0;
@@ -225,8 +230,6 @@ namespace ArtActionProject
         private void BtnViewImageMainForm1_Click(object sender, EventArgs e)
         {
 
-
-
         }
 
         private void BtnViewImageMainForm2_Click(object sender, EventArgs e)
@@ -239,107 +242,82 @@ namespace ArtActionProject
 
         }
 
+        private void checkedValue(int type)
+        {
+            this.Size = LoginForm.sUID.Trim().ToUpper() == "ADMIN" ? new Size(1504, 636) : new Size(1130, 650);
+            try
+            {
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", type.ToString(),
+                    LoginForm.sUID, "0");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (type == 1)
+            {
+                clientConnect("9000");
+            }
+            else if (type == 2)
+            {
+                clientConnect("9001");
+            }
+            else if (type == 3)
+            {
+                clientConnect("9002");
+            }
+            else if (type == 4)
+            {
+                clientConnect("9003");
+            }
+            else if (type == 5)
+            {
+                clientConnect("9004");
+            }
+            else if (type == 6)
+            {
+                clientConnect("9005");
+            }
+        }
+
         //김보라
         //밑으로는 채팅방 접속하는 pictureBox Button 입니다
         //pc버튼을 입력할때 채팅방에 client가 접속 할 수 있게
         private void PbEnterViewImageMainForm1_Click(object sender, EventArgs e)
         {
             iroomNumber = 1;
-            clientConnect("9000");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 1.ToString(),
-                    LoginForm.sUID, "0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            checkedValue(iroomNumber);
         }
 
         private void PbEnterViewImageMainForm2_Click(object sender, EventArgs e)
         {
             iroomNumber = 2;
-            clientConnect("9001");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 2.ToString(),
-                    LoginForm.sUID, "0");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            checkedValue(iroomNumber);
         }
 
         private void PbEnterViewImageMainForm3_Click(object sender, EventArgs e)
         {
             iroomNumber = 3;
-            clientConnect("9002");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 3.ToString(),
-                    LoginForm.sUID, "0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            checkedValue(iroomNumber);
         }
 
         private void PbEnterViewImageMainForm4_Click(object sender, EventArgs e)
         {
             iroomNumber = 4;
-            clientConnect("9003");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 4.ToString(),
-                    LoginForm.sUID, "0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            checkedValue(iroomNumber);
         }
 
         private void PbEnterViewImageMainForm5_Click(object sender, EventArgs e)
         {
             iroomNumber = 5;
-            clientConnect("9004");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 5.ToString(),
-                    LoginForm.sUID, "0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            checkedValue(iroomNumber);
         }
 
         private void PbEnterViewImageMainForm6_Click(object sender, EventArgs e)
         {
             iroomNumber = 6;
-            clientConnect("9005");
-            this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
-            try
-            {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 6.ToString(),
-                    LoginForm.sUID, "0");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            checkedValue(iroomNumber);
         }
 
         //김보라
@@ -358,26 +336,13 @@ namespace ArtActionProject
                 isRecv = false;
                 if (client != null && client.Connected)
                     client.Close();
-                Console.WriteLine("접속이 끊겼습니다");
-
+                Entity.Delete("AUCTION", "USER_NAME", LoginForm.sUID);
             }
             catch (Exception ex)
             {
                 AddtbChattingRoomMainForm("Exception:" + ex.Message);
             }
-            finally
-            {
-                btnEnabled(1);
-            }
-
-            try
-            {
-                Entity.Delete("AUCTION", "USER_NAME", LoginForm.sUID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            btnEnabled(1);
         }
 
         private void MainForm_Load_1(object sender, EventArgs e)
@@ -390,23 +355,7 @@ namespace ArtActionProject
             lblRoom5.Text = "5번방 경매 남은 시각 :" + roomTimer5.ToString()+"초";
             lblRoom6.Text = "6번방 경매 남은 시각 :" + roomTimer6.ToString()+"초";
         }
-
-        //마우스 클릭시 먼저 선언된 mousePoint변수에 현재 마우스 위치값이 들어갑니다.
-        private void MainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            mousePoint = new Point(e.X, e.Y);
-        }
-
-        //클릭상태로 마우스를 이동시 이동한 만큼에서 윈도우 위치값을 뺴게됩니다
-        private void MainForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
-            {
-                Location = new Point(this.Left - (mousePoint.X - e.X),
-                    this.Top - (mousePoint.Y - e.Y));
-            }
-        }
-
+     
         private void Timer1_Tick(object sender, EventArgs e)
         {
             counter = counter + 1;
@@ -430,10 +379,7 @@ namespace ArtActionProject
             }
         }
 
-        private void TbSendingTextMainForm_TextChanged(object sender, EventArgs e)
-        {
-            //채팅입력창
-        }
+       
 
         private void TbSendingTextMainForm_KeyDown(object sender, KeyEventArgs e)
         {
@@ -443,7 +389,7 @@ namespace ArtActionProject
                     string data = tbSendingTextMainForm.Text;
                     sw.WriteLine(LoginForm.sUID + ": " + data);
                     sw.Flush(); //즉시 발송한다.
-//                    AddtbChattingRoomMainForm(LoginForm.sUID +": "+ data);
+                    AddtbChattingRoomMainForm(LoginForm.sUID +": "+ data);
                     tbSendingTextMainForm.Clear();
                     break;
             }
@@ -695,6 +641,27 @@ namespace ArtActionProject
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
     }
 }

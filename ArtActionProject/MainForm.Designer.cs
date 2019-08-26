@@ -71,6 +71,7 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.lbRoomNumInfoMainForm = new System.Windows.Forms.Label();
+            this.btnEndAuctionMainForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm3)).BeginInit();
@@ -97,7 +98,6 @@
             this.tbSendingTextMainForm.Name = "tbSendingTextMainForm";
             this.tbSendingTextMainForm.Size = new System.Drawing.Size(339, 21);
             this.tbSendingTextMainForm.TabIndex = 2;
-            this.tbSendingTextMainForm.TextChanged += new System.EventHandler(this.TbSendingTextMainForm_TextChanged);
             this.tbSendingTextMainForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbSendingTextMainForm_KeyDown);
             // 
             // btnSendingTextMainForm
@@ -264,12 +264,13 @@
             // 
             // btnStartAuctionMainForm
             // 
-            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1312, 270);
+            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1203, 114);
             this.btnStartAuctionMainForm.Name = "btnStartAuctionMainForm";
             this.btnStartAuctionMainForm.Size = new System.Drawing.Size(122, 53);
             this.btnStartAuctionMainForm.TabIndex = 9;
             this.btnStartAuctionMainForm.Text = "경매시작";
             this.btnStartAuctionMainForm.UseVisualStyleBackColor = true;
+            this.btnStartAuctionMainForm.Click += new System.EventHandler(this.btnStartAuctionMainForm_Click);
             // 
             // tbSettingAuctionAmountMainForm
             // 
@@ -457,6 +458,9 @@
             this.pictureBox1.Size = new System.Drawing.Size(1114, 645);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // lbRoomNumInfoMainForm
             // 
@@ -468,7 +472,16 @@
             this.lbRoomNumInfoMainForm.Size = new System.Drawing.Size(33, 17);
             this.lbRoomNumInfoMainForm.TabIndex = 26;
             this.lbRoomNumInfoMainForm.Text = "etert";
-            this.lbRoomNumInfoMainForm.Click += new System.EventHandler(this.LbRoomNumInfoMainForm_Click);
+            // 
+            // btnEndAuctionMainForm
+            // 
+            this.btnEndAuctionMainForm.Location = new System.Drawing.Point(1351, 114);
+            this.btnEndAuctionMainForm.Name = "btnEndAuctionMainForm";
+            this.btnEndAuctionMainForm.Size = new System.Drawing.Size(122, 53);
+            this.btnEndAuctionMainForm.TabIndex = 27;
+            this.btnEndAuctionMainForm.Text = "경매시작";
+            this.btnEndAuctionMainForm.UseVisualStyleBackColor = true;
+            this.btnEndAuctionMainForm.Click += new System.EventHandler(this.btnEndAuctionMainForm_Click);
             // 
             // MainForm
             // 
@@ -476,6 +489,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1504, 636);
+            this.Controls.Add(this.btnEndAuctionMainForm);
             this.Controls.Add(this.lbRoomNumInfoMainForm);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.clbRoomCheck);
@@ -515,8 +529,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load_1);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm3)).EndInit();
@@ -573,5 +585,6 @@
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Label lbRoomNumInfoMainForm;
+        private System.Windows.Forms.Button btnEndAuctionMainForm;
     }
 }

@@ -52,30 +52,27 @@ namespace ArtActionProject
 
         private void BtnLogInForm_Click(object sender, EventArgs e)
         {
-            ;
-            //GuideForm GF = new GuideForm();
-
             try
             {
-                string test = "";
-                string test1 = "";
+                string userID = "";
+                string userPW = "";
 
-                test = Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDLogInForm.Text.Trim());
-                test1 = Entity.Select("C", "S", "PW", "CUSTOMER_INFO", "PW", tbPWLogInForm.Text.Trim());
+                userID = Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDLogInForm.Text.Trim()).Trim().ToUpper();
+                userPW = Entity.Select("C", "S", "PW", "CUSTOMER_INFO", "PW", tbPWLogInForm.Text.Trim()).Trim().ToUpper();
                 sUID = tbIDLogInForm.Text;
-                if (tbIDLogInForm.Text.Trim() != test)   //아이디 틀림
+                if (tbIDLogInForm.Text.Trim().ToUpper() != userID)   //아이디 틀림
                 {
                     MessageBox.Show("존재하지 않는 아이디 입니다");
 
-                    if (tbPWLogInForm.Text.Trim() != test1)  //아이디 비번 둘다 틀림
+                    if (tbPWLogInForm.Text.Trim().ToUpper() != userPW)  //아이디 비번 둘다 틀림
                     {
                         MessageBox.Show("비밀 번호가 잘못 되었습니다");
                     }
 
                 }
-                else if (tbIDLogInForm.Text.Trim() == test)  //아이디 맞음
+                else if (tbIDLogInForm.Text.Trim().ToUpper() == userID)  //아이디 맞음
                 {
-                    if (tbPWLogInForm.Text.Trim() == test1) //아이디 비번 둘다 맞음
+                    if (tbPWLogInForm.Text.Trim().ToUpper() == userPW) //아이디 비번 둘다 맞음
                     {
                         if (LoginForm.sUID.Trim().ToUpper() == "ADMIN")
                         {
