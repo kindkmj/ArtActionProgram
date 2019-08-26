@@ -131,7 +131,8 @@ namespace ArtActionProject
         private void BtnOpenRegisterFormLogInForm_Click(object sender, EventArgs e)
         {
             RegisterForm register = new RegisterForm();
-            register.ShowDialog();
+            register.Show();
+            this.Hide();
         }
 
         private void LoginForm_MouseDown(object sender, MouseEventArgs e)
