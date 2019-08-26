@@ -250,6 +250,8 @@ namespace ArtActionProject
         private void checkedValue(int type)
         {
             this.Size = LoginForm.sUID.Trim().ToUpper() == "ADMIN" ? new Size(1504, 636) : new Size(1130, 650);
+            lbNoticeMainForm.Items.Clear();
+            lbChattingRoomMainForm.Items.Clear();
             try
             {
                 Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", type.ToString(),

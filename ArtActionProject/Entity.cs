@@ -214,23 +214,24 @@ namespace ArtActionProject
 
 
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="tableState"></param>
-            /// <description>테이블 타입 입력 </description>
-            /// <param name="processCase"></param>
-            /// <description>어떤 경우인지 케이스 입력</description>
-            /// <param name="COLUMN_DATA0"></param>
-            /// <description>검색할 데이터 종류 입력 </description>
-            /// <param name="COLUMN_DATA1"></param>
-            /// <description>검색할 테이블 이름 입력 tablestatue와 겹치므로 추후 수정 예정사항 </description>
-            /// <param name="COLUMN_DATA2"></param>
-            /// <description>검색할 컬럼명</description>
-            /// <param name="COLUMN_DATA3"></param>
-            /// <description>검색할 데이터</description>
-            /// <returns></returns>
-            public static string Select(string tableState,string processCase,string COLUMN_DATA0=null, string COLUMN_DATA1 = null,string COLUMN_DATA2= null, string COLUMN_DATA3 = null)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tableState"></param>
+        /// <description>테이블 타입 입력 </description>
+        /// <param name="processCase"></param>
+        /// <description>어떤 경우인지 케이스 입력</description>
+        /// <param name="COLUMN_DATA0"></param>
+        /// <description>검색할 데이터 종류 입력 </description>
+        /// <param name="COLUMN_DATA1"></param>
+        /// <description>검색할 테이블 이름 입력 tablestatue와 겹치므로 추후 수정 예정사항 </description>
+        /// <param name="COLUMN_DATA2"></param>
+        /// <description>검색할 컬럼명</description>
+        /// <param name="COLUMN_DATA3"></param>
+        /// <description>검색할 데이터</description>
+        /// <returns></returns>
+        public static string Select(string tableState, string processCase, string COLUMN_DATA0 = null,
+            string COLUMN_DATA1 = null, string COLUMN_DATA2 = null, string COLUMN_DATA3 = null, string type = null)
         {
             string result = "";
             using (SqlCommand cmd = new SqlCommand())
@@ -240,8 +241,18 @@ namespace ArtActionProject
                 {
                     if (processCase == FINDSELECT)
                     {
-                        //test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim());  
-                        cmd.CommandText = $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
+                        //test =Entity.Select("C", "S", "ID", "CUSTOMER_INFO", "ID", tbIDRegisterForm.Text.Trim()); 
+                        if (type == null)
+                        {
+                            cmd.CommandText =
+                                $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
+                        }
+                        else
+                        {
+                            cmd.CommandText =
+                                $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}={COLUMN_DATA3}";
+                        }
+
                         SqlDataReader reader = cmd.ExecuteReader();
                         while (reader.Read())
                         {
@@ -249,26 +260,27 @@ namespace ArtActionProject
                         }
                         reader.Close();
                     }
-//                    else if (processCase == FINDPW)
-//                    {
-//                        cmd.CommandText = $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
-//                        SqlDataReader reader = cmd.ExecuteReader();
-//                        while (reader.Read())
-//                        {
-//                            result = reader[$"{COLUMN_DATA0}"] as string;
-//                        }
-//                        reader.Close();
-//                    }
-//                    else if (processCase == FINDINGID)
-//                    {
-//                        cmd.CommandText = $"select ID from customer where id='{infoState}'";
-//                        SqlDataReader reader = cmd.ExecuteReader();
-//                        while (reader.Read())
-//                        {
-//                            result = reader["ID"] as string;
-//                        }
-//                        reader.Close();
-//                    }
+                    //string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", "SELECT MAX(CONFIRMED_AMOUNT) FROM AUCTION");
+                    //                    else if (processCase == FINDPW)
+                    //                    {
+                    //                        cmd.CommandText = $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}='{COLUMN_DATA3}'";
+                    //                        SqlDataReader reader = cmd.ExecuteReader();
+                    //                        while (reader.Read())
+                    //                        {
+                    //                            result = reader[$"{COLUMN_DATA0}"] as string;
+                    //                        }
+                    //                        reader.Close();
+                    //                    }
+                    //                    else if (processCase == FINDINGID)
+                    //                    {
+                    //                        cmd.CommandText = $"select ID from customer where id='{infoState}'";
+                    //                        SqlDataReader reader = cmd.ExecuteReader();
+                    //                        while (reader.Read())
+                    //                        {
+                    //                            result = reader["ID"] as string;
+                    //                        }
+                    //                        reader.Close();
+                    //                    }
                 }
                
             }
