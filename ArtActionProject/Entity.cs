@@ -249,6 +249,7 @@ namespace ArtActionProject
                         }
                         else
                         {
+                           
                             cmd.CommandText =
                                 $"select {COLUMN_DATA0} from {COLUMN_DATA1} where {COLUMN_DATA2}={COLUMN_DATA3}";
                         }
