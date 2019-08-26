@@ -120,6 +120,23 @@ namespace ArtActionProject
                     }
                 }
             }
+            else if (type == 2)
+            {
+                if (processCase == "U") //update
+                {
+                    //UPDATE [테이블] SET [열] = '변경할값' WHERE [조건]
+                    //update auction set CONFIRMED_AMOUNT = '150' where user_name = 'kmj'
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = CreateAndOpenConnection();
+                        cmd.CommandText =
+                            $"Update {tableName} set  {COLUMN_DATA0} ='{COLUMN_DATA1}' where {COLUMN_DATA2} >'{COLUMN_DATA3}'";
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+            }
+            
 
 
 //                else if (processCase == "D")

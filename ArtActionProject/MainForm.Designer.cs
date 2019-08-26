@@ -479,7 +479,7 @@
             this.btnEndAuctionMainForm.Name = "btnEndAuctionMainForm";
             this.btnEndAuctionMainForm.Size = new System.Drawing.Size(122, 53);
             this.btnEndAuctionMainForm.TabIndex = 27;
-            this.btnEndAuctionMainForm.Text = "경매시작";
+            this.btnEndAuctionMainForm.Text = "경매종료";
             this.btnEndAuctionMainForm.UseVisualStyleBackColor = true;
             this.btnEndAuctionMainForm.Click += new System.EventHandler(this.btnEndAuctionMainForm_Click);
             // 

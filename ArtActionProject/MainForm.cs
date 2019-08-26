@@ -108,7 +108,11 @@ namespace ArtActionProject
                 {
                     //보냄
                     string data = sr.ReadLine();
-//                    AddtbChattingRoomMainForm(data);
+                    if (data.StartsWith("ADMIN") != true)
+                    {
+                        AddtbChattingRoomMainForm(data);
+                    }
+
                     if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
                     {
                         checkedData(data);
@@ -131,16 +135,17 @@ namespace ArtActionProject
             }
             else if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMSTARTAUCTION"))
             {
+                CheckForIllegalCrossThreadCalls = false;
                 string ment = "경매가 시작되었습니다.";
                 btnAmountMainForm.Enabled = true;
                 MessageBox.Show(ment);
-                AddtbChattingRoomMainForm(ment);
+                lbNoticeMainForm.Items.Add(ment);
             }
             else if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMENDAUCTION"))
             {
                 try
                 {
-                    string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", label9.Text);
+                    string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", "SELECT MAX(CONFIRMED_AMOUNT) FROM AUCTION");
                     btnAmountMainForm.Enabled = false;
                     MessageBox.Show("경매 낙찰자는 " + winning + " 이며 " + label9.Text + " 금액 으로 낙찰 되셨습니다.");
                     lbNoticeMainForm.Items.Clear();
@@ -343,6 +348,7 @@ namespace ArtActionProject
                 AddtbChattingRoomMainForm("Exception:" + ex.Message);
             }
             btnEnabled(1);
+            lbChattingRoomMainForm.Items.Clear();
         }
 
         private void MainForm_Load_1(object sender, EventArgs e)
@@ -354,6 +360,7 @@ namespace ArtActionProject
             lblRoom4.Text = "4번방 경매 남은 시각 :" + roomTimer4.ToString()+"초";
             lblRoom5.Text = "5번방 경매 남은 시각 :" + roomTimer5.ToString()+"초";
             lblRoom6.Text = "6번방 경매 남은 시각 :" + roomTimer6.ToString()+"초";
+            btnAmountMainForm.Enabled = false;
         }
      
         private void Timer1_Tick(object sender, EventArgs e)
@@ -389,7 +396,6 @@ namespace ArtActionProject
                     string data = tbSendingTextMainForm.Text;
                     sw.WriteLine(LoginForm.sUID + ": " + data);
                     sw.Flush(); //즉시 발송한다.
-                    AddtbChattingRoomMainForm(LoginForm.sUID +": "+ data);
                     tbSendingTextMainForm.Clear();
                     break;
             }
@@ -402,7 +408,7 @@ namespace ArtActionProject
             try
             {
                 num = Int32.Parse(label9.Text.Remove(0, 9)) + 80;
-                Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", "kmj",
+                Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", LoginForm.sUID.Trim().ToUpper(),
                     "CHARECTERISTIC_ROOM", iroomNumber.ToString(), 1);
             }
             catch (Exception ex)
@@ -634,8 +640,12 @@ namespace ArtActionProject
         {
             try
             {
+                //UPDATE [테이블] SET [열] = '변경할값' WHERE [조건]
+                //update auction set CONFIRMED_AMOUNT = '150' where user_name = 'kmj'
                 sw.WriteLine("ADMIN.ROOMENDAUCTION");
                 sw.Flush(); //즉시 발송한다.
+                Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", 0.ToString(), "CONFIRMED_AMOUNT","0"
+                    ,"","", 2);//최고값을 0 으로 바꿈
             }
             catch (Exception ex)
             {
