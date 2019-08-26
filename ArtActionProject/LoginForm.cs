@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ArtActionProject
 {
     public partial class LoginForm : Form
@@ -41,9 +42,34 @@ namespace ArtActionProject
             tbPWLogInForm.Text = string.Empty;
         }
 
-        private void BtnLogInForm_Click(object sender, EventArgs e)
+        private void BtnLogInForm_Click(object sender, EventArgs e) //로그인 하는 버튼
         {
-            
+            string testID = "";
+            string testPW = "";
+            testID = Entity.Select(tableState: "C", processCase: "S", 
+                COLUMN_DATA0: "ID",
+                COLUMN_DATA1: "CUSTOMER_INFO",
+                COLUMN_DATA2: "ID", 
+                COLUMN_DATA3: tbIDLogInForm.Text.Trim());
+            testPW = Entity.Select(tableState: "C", processCase: "S",
+                COLUMN_DATA0: "PW",
+                COLUMN_DATA1: "CUSTOMER_INFO",
+                COLUMN_DATA2: "PW",
+                COLUMN_DATA3: tbPWLogInForm.Text.Trim());
+
+            if (tbIDLogInForm.Text.Trim() ==testID && tbPWLogInForm.Text.Trim() == testPW)
+            {
+                MainForm main = new MainForm();
+                main.ShowDialog();
+                MessageBox.Show("안녕하세요");
+                this.Hide();
+                
+            }
+            else
+            {
+                MessageBox.Show("잘못 입력하였습니다.");
+            }
+
         }
 
    
@@ -66,8 +92,6 @@ namespace ArtActionProject
             {
                 Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
                 this.Location = Point.Add(dragFormPoint, new Size(dif));
-                
-
             }
 
         }
@@ -89,6 +113,22 @@ namespace ArtActionProject
             PWFindForm pwFind = new PWFindForm();
             pwFind.ShowDialog();
             
+        }
+
+        private void TbIDLogInForm_Leave(object sender, EventArgs e) 
+        {
+            if(tbIDLogInForm.Text == "")
+            {
+                tbIDLogInForm.Text = "ID";
+            }
+        }
+
+        private void TbPWLogInForm_Leave(object sender, EventArgs e)
+        {
+            if(tbPWLogInForm.Text=="")
+            {
+                tbPWLogInForm.Text = "PassWord";
+            }
         }
     }
 }

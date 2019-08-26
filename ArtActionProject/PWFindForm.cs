@@ -70,5 +70,21 @@ namespace ArtActionProject
             {
             }
         }
+
+        private void TbFindPWFindPWForm_Leave(object sender, EventArgs e)
+        {
+            if(tbFindPWFindPWForm.Text=="")
+            {
+                tbFindPWFindPWForm.Text = "ID";
+            }
+        }
+
+        private void TbEnterEmailFindIDForm_Leave(object sender, EventArgs e)
+        {
+            if(tbEnterEmailFindIDForm.Text=="")
+            {
+                tbEnterEmailFindIDForm.Text = "E-Mail";
+            }
+        }
     }
 }

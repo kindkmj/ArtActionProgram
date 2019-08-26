@@ -57,6 +57,7 @@
             this.tbIDLogInForm.TabIndex = 1;
             this.tbIDLogInForm.Text = "ID";
             this.tbIDLogInForm.Enter += new System.EventHandler(this.TbIDLogInForm_Enter);
+            this.tbIDLogInForm.Leave += new System.EventHandler(this.TbIDLogInForm_Leave);
             // 
             // tbPWLogInForm
             // 
@@ -65,11 +66,13 @@
             this.tbPWLogInForm.Name = "tbPWLogInForm";
             this.tbPWLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbPWLogInForm.TabIndex = 2;
-            this.tbPWLogInForm.Text = "PASSWORD";
+            this.tbPWLogInForm.Text = "PassWord";
             this.tbPWLogInForm.Enter += new System.EventHandler(this.TbPWLogInForm_Enter);
+            this.tbPWLogInForm.Leave += new System.EventHandler(this.TbPWLogInForm_Leave);
             // 
             // pbExitLogInForm
             // 
+            this.pbExitLogInForm.BackColor = System.Drawing.Color.Black;
             this.pbExitLogInForm.Location = new System.Drawing.Point(276, 31);
             this.pbExitLogInForm.Name = "pbExitLogInForm";
             this.pbExitLogInForm.Size = new System.Drawing.Size(62, 70);

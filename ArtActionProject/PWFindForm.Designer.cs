@@ -45,6 +45,7 @@
             this.tbFindPWFindPWForm.TabIndex = 0;
             this.tbFindPWFindPWForm.Text = "ID";
             this.tbFindPWFindPWForm.Enter += new System.EventHandler(this.TbFindPWFindPWForm_Enter);
+            this.tbFindPWFindPWForm.Leave += new System.EventHandler(this.TbFindPWFindPWForm_Leave);
             // 
             // btnEnterValueFindPWForm
             // 
@@ -72,12 +73,14 @@
             this.tbEnterEmailFindIDForm.Name = "tbEnterEmailFindIDForm";
             this.tbEnterEmailFindIDForm.Size = new System.Drawing.Size(192, 21);
             this.tbEnterEmailFindIDForm.TabIndex = 4;
-            this.tbEnterEmailFindIDForm.Text = "E.Mail";
+            this.tbEnterEmailFindIDForm.Text = "E-Mail";
             this.tbEnterEmailFindIDForm.Enter += new System.EventHandler(this.TbEnterEmailFindIDForm_Enter);
+            this.tbEnterEmailFindIDForm.Leave += new System.EventHandler(this.TbEnterEmailFindIDForm_Leave);
             // 
             // pbBackFindPWForm
             // 
-            this.pbBackFindPWForm.Location = new System.Drawing.Point(256, 135);
+            this.pbBackFindPWForm.BackColor = System.Drawing.Color.Black;
+            this.pbBackFindPWForm.Location = new System.Drawing.Point(261, 134);
             this.pbBackFindPWForm.Name = "pbBackFindPWForm";
             this.pbBackFindPWForm.Size = new System.Drawing.Size(82, 58);
             this.pbBackFindPWForm.TabIndex = 5;

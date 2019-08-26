@@ -75,7 +75,9 @@
             this.btnIDRegisterForm.Size = new System.Drawing.Size(204, 21);
             this.btnIDRegisterForm.TabIndex = 3;
             this.btnIDRegisterForm.Text = "ID";
+            this.btnIDRegisterForm.TextChanged += new System.EventHandler(this.BtnIDRegisterForm_TextChanged);
             this.btnIDRegisterForm.Enter += new System.EventHandler(this.BtnIDRegisterForm_Enter);
+            this.btnIDRegisterForm.Leave += new System.EventHandler(this.BtnIDRegisterForm_Leave);
             // 
             // tbEmailRegisterForm
             // 
@@ -86,6 +88,7 @@
             this.tbEmailRegisterForm.TabIndex = 4;
             this.tbEmailRegisterForm.Text = "E.Mail";
             this.tbEmailRegisterForm.Enter += new System.EventHandler(this.TbEmailRegisterForm_Enter);
+            this.tbEmailRegisterForm.Leave += new System.EventHandler(this.TbEmailRegisterForm_Leave);
             // 
             // btnPWChecKedRegisterForm
             // 
@@ -96,6 +99,7 @@
             this.btnPWChecKedRegisterForm.TabIndex = 5;
             this.btnPWChecKedRegisterForm.Text = "Checked PassWord";
             this.btnPWChecKedRegisterForm.Enter += new System.EventHandler(this.BtnPWChecKedRegisterForm_Enter);
+            this.btnPWChecKedRegisterForm.Leave += new System.EventHandler(this.BtnPWChecKedRegisterForm_Leave);
             // 
             // btnPWRegisterForm
             // 
@@ -106,6 +110,7 @@
             this.btnPWRegisterForm.TabIndex = 6;
             this.btnPWRegisterForm.Text = "PassWord";
             this.btnPWRegisterForm.Enter += new System.EventHandler(this.BtnPWRegisterForm_Enter);
+            this.btnPWRegisterForm.Leave += new System.EventHandler(this.BtnPWRegisterForm_Leave);
             // 
             // RegisterForm
             // 
