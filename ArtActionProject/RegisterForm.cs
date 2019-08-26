@@ -81,7 +81,7 @@ namespace ArtActionProject
 
         private void BtnSignRegisterForm_Click(object sender, EventArgs e)//회원가입 하는 버튼
         {
-
+           
 
             try
             {//수정 및 보안 필요
@@ -102,6 +102,7 @@ namespace ArtActionProject
 
                             MessageBox.Show("가입되었습니다");
                             this.Close();
+                            
                            
                         }
                         else
