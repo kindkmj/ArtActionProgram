@@ -1,0 +1,16 @@
+﻿1>------ 빌드 시작: 프로젝트: ArtActionProject, 구성: Debug Any CPU ------
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\TermsAndConditionForm.cs(36,21,36,63): warning CS0665: 조건식에 할당을 사용하면 항상 상수가 됩니다. = 대신 ==을 사용하세요.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\TermsAndConditionForm.cs(45,26,45,69): warning CS0665: 조건식에 할당을 사용하면 항상 상수가 됩니다. = 대신 ==을 사용하세요.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\Entity.cs(265,24,265,30): warning CS0219: result' 할당되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\IDFindForm.cs(29,30,29,32): warning CS0168: ex' 변수가 선언되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\LoginForm.cs(37,30,37,32): warning CS0168: ex' 변수가 선언되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\PWFindForm.cs(69,30,69,32): warning CS0168: ex' 변수가 선언되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\MainForm.cs(586,30,586,32): warning CS0168: ex' 변수가 선언되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\MainForm.cs(43,25,43,35): warning CS0169: MainForm.imageName1' 필드가 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\MainForm.cs(44,22,44,32): warning CS0169: MainForm.imageName2' 필드가 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\MainForm.cs(45,22,45,32): warning CS0169: MainForm.imageName3' 필드가 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\TermsAndConditionForm.cs(15,14,15,22): warning CS0414: TermsAndConditionForm.bClicked' 필드가 할당되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\RegisterForm.cs(19,22,19,32): warning CS0414: RegisterForm.bcheckedId' 필드가 할당되었지만 사용되지 않았습니다.
+1>C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\TermsAndConditionForm.cs(16,13,16,31): warning CS0414: TermsAndConditionForm.iCheckedAllClicked' 필드가 할당되었지만 사용되지 않았습니다.
+1>  ArtActionProject -> C:\Users\bitcamp\Desktop\TeamProject\ArtActionProject\bin\Debug\ArtActionProject.exe
+========== 빌드: 성공 1, 실패 0, 최신 0, 생략 0 ==========
