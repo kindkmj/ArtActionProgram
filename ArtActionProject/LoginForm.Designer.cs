@@ -70,7 +70,6 @@
             this.tbIDLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbIDLogInForm.TabIndex = 1;
             this.tbIDLogInForm.Text = "ID";
-
             this.tbIDLogInForm.Enter += new System.EventHandler(this.TbIDLogInForm_Enter);
             // 
             // tbPWLogInForm
@@ -83,6 +82,7 @@
             this.tbPWLogInForm.TabIndex = 2;
             this.tbPWLogInForm.Text = "PASSWORD";
             this.tbPWLogInForm.Enter += new System.EventHandler(this.TbPWLogInForm_Enter);
+            this.tbPWLogInForm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbPWLogInForm_KeyDown);
             // 
             // pbExitLogInForm
             // 
@@ -210,7 +210,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.TopMost = true;
-
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseUp);

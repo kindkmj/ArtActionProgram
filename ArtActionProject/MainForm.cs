@@ -116,7 +116,7 @@ namespace ArtActionProject
                     if (data.StartsWith("입찰"))
                     {
                         lbNoticeMainForm.Items.Add(data);
-                        lbNoticeMainForm.SelectedIndex = lbChattingRoomMainForm.Items.Count - 1;
+                        lbNoticeMainForm.SelectedIndex = lbNoticeMainForm.Items.Count - 1;
                     }
 
                     if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
@@ -253,14 +253,15 @@ namespace ArtActionProject
 
         }
 
-        private void checkedValue(int type)
+        private void checkedValue(int iroomNumber)
         {
             this.Size = LoginForm.sUID.Trim().ToUpper() == "ADMIN" ? new Size(1504, 636) : new Size(1130, 650);
             lbNoticeMainForm.Items.Clear();
             lbChattingRoomMainForm.Items.Clear();
+            lbRoomNumInfoMainForm.Text = LoginForm.sUID + "님 " + iroomNumber.ToString() + "번방 입니다.";
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", type.ToString(),
+                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", iroomNumber.ToString(),
                     LoginForm.sUID, "0");
             }
             catch (Exception ex)
@@ -268,27 +269,27 @@ namespace ArtActionProject
                 MessageBox.Show(ex.Message);
             }
 
-            if (type == 1)
+            if (iroomNumber == 1)
             {
                 clientConnect("9000");
             }
-            else if (type == 2)
+            else if (iroomNumber == 2)
             {
                 clientConnect("9001");
             }
-            else if (type == 3)
+            else if (iroomNumber == 3)
             {
                 clientConnect("9002");
             }
-            else if (type == 4)
+            else if (iroomNumber == 4)
             {
                 clientConnect("9003");
             }
-            else if (type == 5)
+            else if (iroomNumber == 5)
             {
                 clientConnect("9004");
             }
-            else if (type == 6)
+            else if (iroomNumber == 6)
             {
                 clientConnect("9005");
             }
@@ -338,25 +339,30 @@ namespace ArtActionProject
         //채팅방을 나감과 동시에 화면이 다시 기본 세팅으로 작아지는 버튼 
         private void BtnExitChattingMainForm_Click(object sender, EventArgs e)
         {
-            iroomNumber = 0;
-            if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
+            if (DialogResult.OK == MessageBox.Show("종료하시겠습니까?", "", MessageBoxButtons.YesNo))
             {
-                this.Size = new Size(640, 650);
+                iroomNumber = 0;
+                if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
+                {
+                    this.Size = new Size(640, 650);
+                }
+
+                timer2.Enabled = false;
+                try
+                {
+                    isRecv = false;
+                    if (client != null && client.Connected)
+                        client.Close();
+                    Entity.Delete("AUCTION", "USER_NAME", LoginForm.sUID);
+                }
+                catch (Exception ex)
+                {
+                    AddtbChattingRoomMainForm("Exception:" + ex.Message);
+                }
+
+                btnEnabled(1);
+                lbChattingRoomMainForm.Items.Clear();
             }
-            timer2.Enabled = false;
-            try
-            {
-                isRecv = false;
-                if (client != null && client.Connected)
-                    client.Close();
-                Entity.Delete("AUCTION", "USER_NAME", LoginForm.sUID);
-            }
-            catch (Exception ex)
-            {
-                AddtbChattingRoomMainForm("Exception:" + ex.Message);
-            }
-            btnEnabled(1);
-            lbChattingRoomMainForm.Items.Clear();
         }
 
         private void MainForm_Load_1(object sender, EventArgs e)

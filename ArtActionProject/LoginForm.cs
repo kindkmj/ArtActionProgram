@@ -50,7 +50,7 @@ namespace ArtActionProject
             tbPWLogInForm.Text = string.Empty;
         }
 
-        private void BtnLogInForm_Click(object sender, EventArgs e)
+        private void loginFuction()
         {
             try
             {
@@ -102,6 +102,10 @@ namespace ArtActionProject
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void BtnLogInForm_Click(object sender, EventArgs e)
+        {
+            loginFuction();
         }
 
         private void Timer2_Tick(object sender, EventArgs e)
@@ -169,6 +173,14 @@ namespace ArtActionProject
             PWFindForm pwFind = new PWFindForm();
             pwFind.ShowDialog();
 
+        }
+
+        private void TbPWLogInForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginFuction();
+            }
         }
     }
 }
