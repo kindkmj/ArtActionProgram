@@ -186,7 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(651, 317);
+            this.ClientSize = new System.Drawing.Size(666, 320);
             this.Controls.Add(this.cbResisterForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);

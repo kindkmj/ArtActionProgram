@@ -68,6 +68,9 @@
             this.clbRoomCheck = new System.Windows.Forms.CheckedListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.lbRoomNumInfoMainForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm3)).BeginInit();
@@ -82,7 +85,7 @@
             // 
             this.lbNoticeMainForm.FormattingEnabled = true;
             this.lbNoticeMainForm.ItemHeight = 12;
-            this.lbNoticeMainForm.Location = new System.Drawing.Point(645, 59);
+            this.lbNoticeMainForm.Location = new System.Drawing.Point(645, 114);
             this.lbNoticeMainForm.Name = "lbNoticeMainForm";
             this.lbNoticeMainForm.Size = new System.Drawing.Size(466, 208);
             this.lbNoticeMainForm.TabIndex = 0;
@@ -90,7 +93,7 @@
             // 
             // tbSendingTextMainForm
             // 
-            this.tbSendingTextMainForm.Location = new System.Drawing.Point(645, 559);
+            this.tbSendingTextMainForm.Location = new System.Drawing.Point(645, 566);
             this.tbSendingTextMainForm.Name = "tbSendingTextMainForm";
             this.tbSendingTextMainForm.Size = new System.Drawing.Size(339, 21);
             this.tbSendingTextMainForm.TabIndex = 2;
@@ -99,7 +102,7 @@
             // 
             // btnSendingTextMainForm
             // 
-            this.btnSendingTextMainForm.Location = new System.Drawing.Point(1000, 549);
+            this.btnSendingTextMainForm.Location = new System.Drawing.Point(1000, 560);
             this.btnSendingTextMainForm.Name = "btnSendingTextMainForm";
             this.btnSendingTextMainForm.Size = new System.Drawing.Size(113, 31);
             this.btnSendingTextMainForm.TabIndex = 3;
@@ -108,7 +111,7 @@
             // 
             // btnAmountMainForm
             // 
-            this.btnAmountMainForm.Location = new System.Drawing.Point(1000, 588);
+            this.btnAmountMainForm.Location = new System.Drawing.Point(1000, 598);
             this.btnAmountMainForm.Name = "btnAmountMainForm";
             this.btnAmountMainForm.Size = new System.Drawing.Size(113, 31);
             this.btnAmountMainForm.TabIndex = 3;
@@ -169,7 +172,7 @@
             // 
             // pbEnterViewImageMainForm1
             // 
-            this.pbEnterViewImageMainForm1.BackColor = System.Drawing.Color.RosyBrown;
+            this.pbEnterViewImageMainForm1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pbEnterViewImageMainForm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbEnterViewImageMainForm1.Location = new System.Drawing.Point(35, 243);
             this.pbEnterViewImageMainForm1.Name = "pbEnterViewImageMainForm1";
@@ -290,7 +293,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe Print", 7F);
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(735, 595);
+            this.label2.Location = new System.Drawing.Point(735, 598);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(249, 17);
             this.label2.TabIndex = 12;
@@ -384,9 +387,9 @@
             // 
             this.lbChattingRoomMainForm.FormattingEnabled = true;
             this.lbChattingRoomMainForm.ItemHeight = 12;
-            this.lbChattingRoomMainForm.Location = new System.Drawing.Point(647, 276);
+            this.lbChattingRoomMainForm.Location = new System.Drawing.Point(647, 328);
             this.lbChattingRoomMainForm.Name = "lbChattingRoomMainForm";
-            this.lbChattingRoomMainForm.Size = new System.Drawing.Size(464, 256);
+            this.lbChattingRoomMainForm.Size = new System.Drawing.Size(464, 232);
             this.lbChattingRoomMainForm.TabIndex = 20;
             // 
             // timer2
@@ -449,11 +452,23 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(135, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1114, 645);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            // 
+            // lbRoomNumInfoMainForm
+            // 
+            this.lbRoomNumInfoMainForm.AutoSize = true;
+            this.lbRoomNumInfoMainForm.Font = new System.Drawing.Font("Segoe Print", 7F);
+            this.lbRoomNumInfoMainForm.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbRoomNumInfoMainForm.Location = new System.Drawing.Point(818, 81);
+            this.lbRoomNumInfoMainForm.Name = "lbRoomNumInfoMainForm";
+            this.lbRoomNumInfoMainForm.Size = new System.Drawing.Size(33, 17);
+            this.lbRoomNumInfoMainForm.TabIndex = 26;
+            this.lbRoomNumInfoMainForm.Text = "etert";
+            this.lbRoomNumInfoMainForm.Click += new System.EventHandler(this.LbRoomNumInfoMainForm_Click);
             // 
             // MainForm
             // 
@@ -461,6 +476,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1504, 636);
+            this.Controls.Add(this.lbRoomNumInfoMainForm);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.clbRoomCheck);
             this.Controls.Add(this.btnOpenDialog);
@@ -554,5 +570,8 @@
         private System.Windows.Forms.CheckedListBox clbRoomCheck;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Label lbRoomNumInfoMainForm;
     }
 }

@@ -47,6 +47,8 @@ namespace ArtActionProject
         private int iroomNumber = 0;
         private int counter = 0;
 
+        static string userRoomNumber;
+
         private Point mousePoint;
 
 
@@ -104,7 +106,9 @@ namespace ArtActionProject
                 {
                     //보냄
                     string data = sr.ReadLine();
-                    AddtbChattingRoomMainForm(data);
+                    //                    AddtbChattingRoomMainForm(data);
+                    lbChattingRoomMainForm.Items.Add(data);
+                    lbChattingRoomMainForm.SelectedIndex = lbChattingRoomMainForm.Items.Count - 1;
                 }
                 catch (Exception ex)
                 {
@@ -155,7 +159,8 @@ namespace ArtActionProject
                 tRecv = new Thread(new ThreadStart(ThreadRecv));
                 tRecv.Start();
                 btnEnabled(1); //다른 방 버튼 비활성화
-                MessageBox.Show(iroomNumber + "번방에 입장하셨습니다");
+                MessageBox.Show(LoginForm.sUID+"님은 현재 "+ iroomNumber + "번방에 입장하셨습니다");
+                userRoomNumber = iroomNumber.ToString();
             }
             catch (Exception ex)
             {
@@ -211,8 +216,7 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 1.ToString(),
-                    LoginForm.sUID, "0");
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
@@ -228,10 +232,7 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 2.ToString(),
-                    LoginForm.sUID, "0");
-
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
@@ -246,8 +247,7 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 3.ToString(),
-                    LoginForm.sUID, "0");
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
@@ -262,14 +262,14 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 4.ToString(),
-                    LoginForm.sUID, "0");
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+           
         }
 
         private void PbEnterViewImageMainForm5_Click(object sender, EventArgs e)
@@ -279,8 +279,7 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 5.ToString(),
-                    LoginForm.sUID, "0");
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
@@ -295,8 +294,7 @@ namespace ArtActionProject
             this.Size = LoginForm.sUID == "Admin" ? new Size(1504, 636) : new Size(1130, 650);
             try
             {
-                Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT", 6.ToString(),
-                    LoginForm.sUID, "0");
+                noticeAuctionUsersAndAmount(iroomNumber.ToString());
             }
             catch (Exception ex)
             {
@@ -305,19 +303,55 @@ namespace ArtActionProject
         }
 
         //김보라
+        //pbEnterViewImageMainForm(1~6)을 클릭해 채팅방에 사용자가 입장하게 되면
+        //lbNoticeForm에 사용자가 입장했다는 것을 알리고 사용자가 배팅을 하게 되면
+        //배팅을 한 사용자와 사용자의 배팅금액이 얼마인지를 알리는 메서드
+        private void noticeAuctionUsersAndAmount(string iroomNumber)
+        {
+            Entity.DmlCase("I", "AUCTION", "CHARECTERISTIC_ROOM", "USER_NAME", "CONFIRMED_AMOUNT",iroomNumber,
+                      LoginForm.sUID, "0");
+            string checkedUser = "";
+            checkedUser = LoginForm.sUID + "님은 현재" + userRoomNumber + "번 Auction방에 입장중 입니다.";
+
+            lbRoomNumInfoMainForm.Text = checkedUser;
+            lbNoticeMainForm.Items.Add(checkedUser);
+        }
+        
+
+
+        //김보라
         //Server Disconnect 
         //채팅방을 나감과 동시에 화면이 다시 기본 세팅으로 작아지는 버튼 
         private void BtnExitChattingMainForm_Click(object sender, EventArgs e)
         {
+            
+
             iroomNumber = 0;
-            this.Size = new Size(640, 650);
+
+            //Admin 아이디로 방 나가기 버튼을 눌렀을 경우에만
+            //listbox가 지워지게
+//            if (LoginForm.sUID == "Admin")
+//            {
+//                lbNoticeMainForm.Items.Clear();
+//            }
             timer2.Enabled = false;
             try
             {
-                isRecv = false;
-                if (client != null && client.Connected)
-                    client.Close();
-                Console.WriteLine("접속이 끊겼습니다");
+                DialogResult dialogResult = MessageBox.Show(LoginForm.sUID+"님"+ userRoomNumber + "번 방을 나가시겠습니까?", "", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (LoginForm.sUID != "Admin")
+                    {
+                        this.Size = new Size(640, 650);
+                    }
+
+                    isRecv = false;
+                    if (client != null && client.Connected)
+                        client.Close();
+                    Console.WriteLine("접속이 끊겼습니다");
+                    lbChattingRoomMainForm.Text = "";
+                }
 
             }
             catch (Exception ex)
@@ -338,7 +372,6 @@ namespace ArtActionProject
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void MainForm_Load_1(object sender, EventArgs e)
         {
             dateTimePicker1.Text = "00:00";
@@ -347,7 +380,7 @@ namespace ArtActionProject
             lblRoom3.Text = "3번방 경매 남은 시각 :" + roomTimer3.ToString()+"초";
             lblRoom4.Text = "4번방 경매 남은 시각 :" + roomTimer4.ToString()+"초";
             lblRoom5.Text = "5번방 경매 남은 시각 :" + roomTimer5.ToString()+"초";
-            lblRoom6.Text = "6번방 경매 남은 시각 :" + roomTimer6.ToString()+"초";
+            lblRoom6.Text = "6번방 경매 남은 시각 :" + roomTimer6.ToString()+"초";            
         }
 
         //마우스 클릭시 먼저 선언된 mousePoint변수에 현재 마우스 위치값이 들어갑니다.
@@ -412,8 +445,7 @@ namespace ArtActionProject
         private void BtnAmountMainForm_Click(object sender, EventArgs e)
         {
             int num = 0;
-          
-
+         
             try
             {
                 num = Int32.Parse(label9.Text.Remove(0, 9)) + 80;
@@ -421,7 +453,13 @@ namespace ArtActionProject
                 Entity.DmlCase("U", "AUCTION", "CONFIRMED_AMOUNT", num.ToString(), "USER_NAME", LoginForm.sUID,
                     "CHARECTERISTIC_ROOM", iroomNumber.ToString(), 1);
 
-                
+                //김보라
+                string test2 = Entity.Select("USER_NAME", "AUCTION", "CHARECTERISTIC_ROOM", iroomNumber.ToString());
+                string test3 = Entity.Select("CONFIRMED_AMOUNT", "AUCTION", "CHARECTERISTIC_ROOM", iroomNumber.ToString());
+
+                string result = test2 + "님이" + test3 + "가격으로 구매 결정하셨습니다";
+
+                lbNoticeMainForm.Items.Add(result);
             }
             catch (Exception ex)
             {
@@ -431,7 +469,20 @@ namespace ArtActionProject
 
         private void LbNoticeMainForm_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Entity.Select("USER_NAME", "CONFIRMED_AMOUN", "AUCTION");
+            string test = Entity.Select("max(confirmed_amount)", "AUCTION", "CHARECTERISTIC_ROOM",
+                   iroomNumber.ToString());
+            // Entity.Select1("USER_NAME", "CONFIRMED_AMOUNT", "AUCTION");
+
+            lbNoticeMainForm.BeginUpdate();
+            lbNoticeMainForm.Items.Clear();
+
+            timer3.Tick += Timer3_Tick;
+            timer3.Interval = 2000;           
+        }
+
+        private void Timer3_Tick(object sender, EventArgs e)
+        {
+           
         }
 
         private void Timer2_Tick(object sender, EventArgs e)
@@ -440,7 +491,12 @@ namespace ArtActionProject
             {
                 string test = Entity.Select("max(confirmed_amount)", "AUCTION", "CHARECTERISTIC_ROOM",
                     iroomNumber.ToString());
+              
+               
+
                 label9.Text = "현재 최고가 = " + test;
+                
+
             }
             catch (Exception ex)
             {
@@ -633,6 +689,11 @@ namespace ArtActionProject
                 file_path = setFileLocation();
                 setBtinImage(6, file_path);
             }
+        }
+
+        private void LbRoomNumInfoMainForm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

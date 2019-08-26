@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.MobileControls;
 
 namespace ArtActionProject
 {
@@ -30,6 +32,8 @@ namespace ArtActionProject
         // insert - 회원가입
         // update - 옥션에서 물품 낙찰 받을때
         // select - 회원 정보 확인,아이디확인,패스워드 확인,이메일 찾기,로그인
+        private const string AUCTIONLB = "ALB";
+
         private const string CUSTOMERINFO = "C";
         private const string REGISTER = "R";
         private const string FINDINGID = "FI";
@@ -249,6 +253,7 @@ namespace ArtActionProject
 //                        reader.Close();
 //                    }
                 }
+               
             }
             return result;
         }
@@ -344,18 +349,26 @@ namespace ArtActionProject
             }
             return result;
         }
-        public static void Select1()
+        public static void Select1(string tablename,string USERNAME, string AMOUNT)
         {
             try
             {
                 using(SqlCommand cmd = new SqlCommand())
                 {
+                    
                     cmd.Connection = CreateAndOpenConnection();
 
-                    cmd.CommandText = $"Select count(*) Auction";
+
+                    cmd.CommandText = $"SELECT{tablename}FROM {USERNAME},{AMOUNT}";
+                   
+                    conn.Open();
+
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
                 }
 
-            }catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

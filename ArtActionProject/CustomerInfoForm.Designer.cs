@@ -31,11 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerInfoForm));
             this.pbBackGuideForm = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.ListBox();
-            this.EMAIL = new System.Windows.Forms.ListBox();
-            this.CARD_NUMBER = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbIDCustomerInfoForm = new System.Windows.Forms.Label();
+            this.lbEmailCustomerInfoForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbBackGuideForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +43,7 @@
             // 
             this.pbBackGuideForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbBackGuideForm.BackgroundImage")));
             this.pbBackGuideForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbBackGuideForm.Location = new System.Drawing.Point(12, 299);
+            this.pbBackGuideForm.Location = new System.Drawing.Point(12, 1);
             this.pbBackGuideForm.Name = "pbBackGuideForm";
             this.pbBackGuideForm.Size = new System.Drawing.Size(43, 43);
             this.pbBackGuideForm.TabIndex = 10;
@@ -62,40 +61,13 @@
             this.label1.Text = "고객정보";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // ID
-            // 
-            this.ID.FormattingEnabled = true;
-            this.ID.ItemHeight = 12;
-            this.ID.Location = new System.Drawing.Point(90, 142);
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(182, 28);
-            this.ID.TabIndex = 12;
-            // 
-            // EMAIL
-            // 
-            this.EMAIL.FormattingEnabled = true;
-            this.EMAIL.ItemHeight = 12;
-            this.EMAIL.Location = new System.Drawing.Point(90, 176);
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.Size = new System.Drawing.Size(182, 28);
-            this.EMAIL.TabIndex = 12;
-            // 
-            // CARD_NUMBER
-            // 
-            this.CARD_NUMBER.FormattingEnabled = true;
-            this.CARD_NUMBER.ItemHeight = 12;
-            this.CARD_NUMBER.Location = new System.Drawing.Point(90, 210);
-            this.CARD_NUMBER.Name = "CARD_NUMBER";
-            this.CARD_NUMBER.Size = new System.Drawing.Size(182, 28);
-            this.CARD_NUMBER.TabIndex = 12;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(50, -13);
+            this.pictureBox1.Location = new System.Drawing.Point(55, -13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(328, 340);
+            this.pictureBox1.Size = new System.Drawing.Size(323, 340);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
@@ -109,17 +81,37 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "USERINFO";
             // 
+            // lbIDCustomerInfoForm
+            // 
+            this.lbIDCustomerInfoForm.AutoSize = true;
+            this.lbIDCustomerInfoForm.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDCustomerInfoForm.Location = new System.Drawing.Point(147, 171);
+            this.lbIDCustomerInfoForm.Name = "lbIDCustomerInfoForm";
+            this.lbIDCustomerInfoForm.Size = new System.Drawing.Size(50, 19);
+            this.lbIDCustomerInfoForm.TabIndex = 21;
+            this.lbIDCustomerInfoForm.Text = "UserID";
+       
+            // 
+            // lbEmailCustomerInfoForm
+            // 
+            this.lbEmailCustomerInfoForm.AutoSize = true;
+            this.lbEmailCustomerInfoForm.Font = new System.Drawing.Font("Segoe Script", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmailCustomerInfoForm.Location = new System.Drawing.Point(131, 218);
+            this.lbEmailCustomerInfoForm.Name = "lbEmailCustomerInfoForm";
+            this.lbEmailCustomerInfoForm.Size = new System.Drawing.Size(75, 19);
+            this.lbEmailCustomerInfoForm.TabIndex = 22;
+            this.lbEmailCustomerInfoForm.Text = "UserEmail";
+            // 
             // CustomerInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(367, 354);
+            this.Controls.Add(this.lbEmailCustomerInfoForm);
+            this.Controls.Add(this.lbIDCustomerInfoForm);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CARD_NUMBER);
-            this.Controls.Add(this.EMAIL);
-            this.Controls.Add(this.ID);
             this.Controls.Add(this.pbBackGuideForm);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -138,10 +130,9 @@
 
         private System.Windows.Forms.PictureBox pbBackGuideForm;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox ID;
-        private System.Windows.Forms.ListBox EMAIL;
-        private System.Windows.Forms.ListBox CARD_NUMBER;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbIDCustomerInfoForm;
+        private System.Windows.Forms.Label lbEmailCustomerInfoForm;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.btnLogInForm = new System.Windows.Forms.Button();
             this.tbIDLogInForm = new System.Windows.Forms.TextBox();
@@ -40,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbExitLogInForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +70,7 @@
             this.tbIDLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbIDLogInForm.TabIndex = 1;
             this.tbIDLogInForm.Text = "ID";
-            this.tbIDLogInForm.TextChanged += new System.EventHandler(this.TbIDLogInForm_TextChanged);
+
             this.tbIDLogInForm.Enter += new System.EventHandler(this.TbIDLogInForm_Enter);
             // 
             // tbPWLogInForm
@@ -75,6 +78,7 @@
             this.tbPWLogInForm.ForeColor = System.Drawing.Color.DarkGray;
             this.tbPWLogInForm.Location = new System.Drawing.Point(170, 168);
             this.tbPWLogInForm.Name = "tbPWLogInForm";
+            this.tbPWLogInForm.PasswordChar = '*';
             this.tbPWLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbPWLogInForm.TabIndex = 2;
             this.tbPWLogInForm.Text = "PASSWORD";
@@ -135,7 +139,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(141, 87);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 104);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(288, 133);
             this.pictureBox1.TabIndex = 7;
@@ -173,6 +177,16 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Online Art Gallery";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 50;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -195,6 +209,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
+
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseUp);
@@ -218,6 +234,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
