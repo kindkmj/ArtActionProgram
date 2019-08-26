@@ -21,11 +21,20 @@ namespace ArtActionProject
         private void PbBackGuideForm_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void CustomerInfoForm_Load(object sender, EventArgs e)
         {
+            string test2 = Entity.Select("ID", "CUSTOMER_INFO", "EMAIL");
+            string test3 = Entity.Select("EMAIL", "CUSTOMER_INFO", "ID");
+
+            lbIDCustomerInfoForm.Text = test2;
+            lbEmailCustomerInfoForm.Text = test3;
+               
+
 
         }
+
     }
 }

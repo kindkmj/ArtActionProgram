@@ -53,7 +53,7 @@
             this.btnBackRegisterForm.Location = new System.Drawing.Point(385, 259);
             this.btnBackRegisterForm.Name = "btnBackRegisterForm";
             this.btnBackRegisterForm.Size = new System.Drawing.Size(120, 46);
-            this.btnBackRegisterForm.TabIndex = 7;
+            this.btnBackRegisterForm.TabIndex = 9;
             this.btnBackRegisterForm.Text = "back";
             this.btnBackRegisterForm.UseVisualStyleBackColor = false;
             this.btnBackRegisterForm.Click += new System.EventHandler(this.BtnBackRegisterForm_Click);
@@ -64,7 +64,7 @@
             this.btnChecKedIDRegisterForm.Location = new System.Drawing.Point(417, 114);
             this.btnChecKedIDRegisterForm.Name = "btnChecKedIDRegisterForm";
             this.btnChecKedIDRegisterForm.Size = new System.Drawing.Size(120, 22);
-            this.btnChecKedIDRegisterForm.TabIndex = 5;
+            this.btnChecKedIDRegisterForm.TabIndex = 2;
             this.btnChecKedIDRegisterForm.Text = "CheckedID";
             this.btnChecKedIDRegisterForm.UseVisualStyleBackColor = true;
             this.btnChecKedIDRegisterForm.Click += new System.EventHandler(this.BtnChecKedIDRegisterForm_Click);
@@ -78,7 +78,7 @@
             this.btnSignRegisterForm.Location = new System.Drawing.Point(258, 259);
             this.btnSignRegisterForm.Name = "btnSignRegisterForm";
             this.btnSignRegisterForm.Size = new System.Drawing.Size(120, 48);
-            this.btnSignRegisterForm.TabIndex = 6;
+            this.btnSignRegisterForm.TabIndex = 7;
             this.btnSignRegisterForm.Text = "SignRegister";
             this.btnSignRegisterForm.UseVisualStyleBackColor = false;
             this.btnSignRegisterForm.Click += new System.EventHandler(this.BtnSignRegisterForm_Click);
@@ -91,7 +91,6 @@
             this.tbIDRegisterForm.Size = new System.Drawing.Size(204, 21);
             this.tbIDRegisterForm.TabIndex = 1;
             this.tbIDRegisterForm.Text = "ID";
-
             this.tbIDRegisterForm.Enter += new System.EventHandler(this.BtnIDRegisterForm_Enter);
             // 
             // tbEmailRegisterForm
@@ -100,7 +99,7 @@
             this.tbEmailRegisterForm.Location = new System.Drawing.Point(207, 195);
             this.tbEmailRegisterForm.Name = "tbEmailRegisterForm";
             this.tbEmailRegisterForm.Size = new System.Drawing.Size(204, 21);
-            this.tbEmailRegisterForm.TabIndex = 4;
+            this.tbEmailRegisterForm.TabIndex = 5;
             this.tbEmailRegisterForm.Text = "E.Mail";
             this.tbEmailRegisterForm.Enter += new System.EventHandler(this.TbEmailRegisterForm_Enter);
             // 
@@ -110,7 +109,7 @@
             this.tbPWChecKedRegisterForm.Location = new System.Drawing.Point(207, 168);
             this.tbPWChecKedRegisterForm.Name = "tbPWChecKedRegisterForm";
             this.tbPWChecKedRegisterForm.Size = new System.Drawing.Size(204, 21);
-            this.tbPWChecKedRegisterForm.TabIndex = 3;
+            this.tbPWChecKedRegisterForm.TabIndex = 4;
             this.tbPWChecKedRegisterForm.Text = "Checked PassWord";
             this.tbPWChecKedRegisterForm.Enter += new System.EventHandler(this.BtnPWChecKedRegisterForm_Enter);
             // 
@@ -120,7 +119,7 @@
             this.tbPWRegisterForm.Location = new System.Drawing.Point(207, 141);
             this.tbPWRegisterForm.Name = "tbPWRegisterForm";
             this.tbPWRegisterForm.Size = new System.Drawing.Size(204, 21);
-            this.tbPWRegisterForm.TabIndex = 2;
+            this.tbPWRegisterForm.TabIndex = 3;
             this.tbPWRegisterForm.Text = "PassWord";
             this.tbPWRegisterForm.TextChanged += new System.EventHandler(this.TbPWRegisterForm_TextChanged);
             this.tbPWRegisterForm.Enter += new System.EventHandler(this.BtnPWRegisterForm_Enter);
@@ -162,7 +161,7 @@
             this.cbResisterForm.Location = new System.Drawing.Point(219, 235);
             this.cbResisterForm.Name = "cbResisterForm";
             this.cbResisterForm.Size = new System.Drawing.Size(182, 18);
-            this.cbResisterForm.TabIndex = 18;
+            this.cbResisterForm.TabIndex = 6;
             this.cbResisterForm.Text = "이용약관을 읽어 보신후 동의해주세요";
             this.cbResisterForm.UseVisualStyleBackColor = true;
             this.cbResisterForm.CheckedChanged += new System.EventHandler(this.CbResisterForm_CheckedChanged);
@@ -176,7 +175,7 @@
             this.btnTermAndConditionResisterForm.Location = new System.Drawing.Point(132, 259);
             this.btnTermAndConditionResisterForm.Name = "btnTermAndConditionResisterForm";
             this.btnTermAndConditionResisterForm.Size = new System.Drawing.Size(120, 48);
-            this.btnTermAndConditionResisterForm.TabIndex = 6;
+            this.btnTermAndConditionResisterForm.TabIndex = 8;
             this.btnTermAndConditionResisterForm.Text = "Terms And Conditions";
             this.btnTermAndConditionResisterForm.UseVisualStyleBackColor = false;
             this.btnTermAndConditionResisterForm.Click += new System.EventHandler(this.BtnTermAndConditionResisterForm_Click);
@@ -187,7 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(651, 317);
+            this.ClientSize = new System.Drawing.Size(666, 320);
             this.Controls.Add(this.cbResisterForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
@@ -203,7 +202,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegisterForm";
+            this.Text = "KLJ";
             this.Load += new System.EventHandler(this.RegisterForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegisterForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegisterForm_MouseMove);

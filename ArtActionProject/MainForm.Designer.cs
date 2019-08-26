@@ -67,7 +67,10 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.clbRoomCheck = new System.Windows.Forms.CheckedListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnEndAuctionMainForm = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.lbRoomNumInfoMainForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm3)).BeginInit();
@@ -75,13 +78,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExitMainForm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbNoticeMainForm
             // 
             this.lbNoticeMainForm.FormattingEnabled = true;
             this.lbNoticeMainForm.ItemHeight = 12;
-            this.lbNoticeMainForm.Location = new System.Drawing.Point(645, 59);
+            this.lbNoticeMainForm.Location = new System.Drawing.Point(645, 114);
             this.lbNoticeMainForm.Name = "lbNoticeMainForm";
             this.lbNoticeMainForm.Size = new System.Drawing.Size(466, 208);
             this.lbNoticeMainForm.TabIndex = 0;
@@ -89,7 +93,7 @@
             // 
             // tbSendingTextMainForm
             // 
-            this.tbSendingTextMainForm.Location = new System.Drawing.Point(645, 559);
+            this.tbSendingTextMainForm.Location = new System.Drawing.Point(645, 566);
             this.tbSendingTextMainForm.Name = "tbSendingTextMainForm";
             this.tbSendingTextMainForm.Size = new System.Drawing.Size(339, 21);
             this.tbSendingTextMainForm.TabIndex = 2;
@@ -98,7 +102,7 @@
             // 
             // btnSendingTextMainForm
             // 
-            this.btnSendingTextMainForm.Location = new System.Drawing.Point(1000, 549);
+            this.btnSendingTextMainForm.Location = new System.Drawing.Point(1000, 560);
             this.btnSendingTextMainForm.Name = "btnSendingTextMainForm";
             this.btnSendingTextMainForm.Size = new System.Drawing.Size(113, 31);
             this.btnSendingTextMainForm.TabIndex = 3;
@@ -107,7 +111,7 @@
             // 
             // btnAmountMainForm
             // 
-            this.btnAmountMainForm.Location = new System.Drawing.Point(1000, 588);
+            this.btnAmountMainForm.Location = new System.Drawing.Point(1000, 598);
             this.btnAmountMainForm.Name = "btnAmountMainForm";
             this.btnAmountMainForm.Size = new System.Drawing.Size(113, 31);
             this.btnAmountMainForm.TabIndex = 3;
@@ -168,7 +172,7 @@
             // 
             // pbEnterViewImageMainForm1
             // 
-            this.pbEnterViewImageMainForm1.BackColor = System.Drawing.Color.RosyBrown;
+            this.pbEnterViewImageMainForm1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pbEnterViewImageMainForm1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbEnterViewImageMainForm1.Location = new System.Drawing.Point(35, 243);
             this.pbEnterViewImageMainForm1.Name = "pbEnterViewImageMainForm1";
@@ -245,23 +249,27 @@
             // 
             // btnCheckInfoMainForm
             // 
+            this.btnCheckInfoMainForm.BackColor = System.Drawing.SystemColors.Info;
+            this.btnCheckInfoMainForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCheckInfoMainForm.BackgroundImage")));
+            this.btnCheckInfoMainForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCheckInfoMainForm.Font = new System.Drawing.Font("Segoe Script", 7F);
+            this.btnCheckInfoMainForm.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnCheckInfoMainForm.Location = new System.Drawing.Point(84, 12);
             this.btnCheckInfoMainForm.Name = "btnCheckInfoMainForm";
-            this.btnCheckInfoMainForm.Size = new System.Drawing.Size(45, 43);
+            this.btnCheckInfoMainForm.Size = new System.Drawing.Size(126, 43);
             this.btnCheckInfoMainForm.TabIndex = 8;
             this.btnCheckInfoMainForm.Text = "고객정보";
-            this.btnCheckInfoMainForm.UseVisualStyleBackColor = true;
+            this.btnCheckInfoMainForm.UseVisualStyleBackColor = false;
             this.btnCheckInfoMainForm.Click += new System.EventHandler(this.BtnCheckInfoMainForm_Click);
             // 
             // btnStartAuctionMainForm
             // 
-            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1294, 63);
+            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1312, 270);
             this.btnStartAuctionMainForm.Name = "btnStartAuctionMainForm";
             this.btnStartAuctionMainForm.Size = new System.Drawing.Size(122, 53);
             this.btnStartAuctionMainForm.TabIndex = 9;
             this.btnStartAuctionMainForm.Text = "경매시작";
             this.btnStartAuctionMainForm.UseVisualStyleBackColor = true;
-            this.btnStartAuctionMainForm.Click += new System.EventHandler(this.btnStartAuctionMainForm_Click);
             // 
             // tbSettingAuctionAmountMainForm
             // 
@@ -285,7 +293,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe Print", 7F);
             this.label2.ForeColor = System.Drawing.Color.DarkRed;
-            this.label2.Location = new System.Drawing.Point(735, 595);
+            this.label2.Location = new System.Drawing.Point(735, 598);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(249, 17);
             this.label2.TabIndex = 12;
@@ -293,66 +301,79 @@
             // 
             // btnExitChattingMainForm
             // 
+            this.btnExitChattingMainForm.BackColor = System.Drawing.SystemColors.Info;
+            this.btnExitChattingMainForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExitChattingMainForm.BackgroundImage")));
+            this.btnExitChattingMainForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExitChattingMainForm.Font = new System.Drawing.Font("Segoe Print", 7F);
             this.btnExitChattingMainForm.Location = new System.Drawing.Point(1000, 12);
             this.btnExitChattingMainForm.Name = "btnExitChattingMainForm";
             this.btnExitChattingMainForm.Size = new System.Drawing.Size(111, 42);
             this.btnExitChattingMainForm.TabIndex = 13;
             this.btnExitChattingMainForm.Text = "채팅방나가기";
-            this.btnExitChattingMainForm.UseVisualStyleBackColor = true;
+            this.btnExitChattingMainForm.UseVisualStyleBackColor = false;
             this.btnExitChattingMainForm.Click += new System.EventHandler(this.BtnExitChattingMainForm_Click);
             // 
             // lblRoom1
             // 
             this.lblRoom1.AutoSize = true;
+            this.lblRoom1.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoom1.Location = new System.Drawing.Point(60, 401);
             this.lblRoom1.Name = "lblRoom1";
-            this.lblRoom1.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom1.Size = new System.Drawing.Size(42, 14);
             this.lblRoom1.TabIndex = 14;
             this.lblRoom1.Text = "Room1";
             // 
             // lblRoom2
             // 
             this.lblRoom2.AutoSize = true;
+            this.lblRoom2.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblRoom2.Location = new System.Drawing.Point(260, 401);
             this.lblRoom2.Name = "lblRoom2";
-            this.lblRoom2.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom2.Size = new System.Drawing.Size(42, 14);
             this.lblRoom2.TabIndex = 15;
             this.lblRoom2.Text = "Room2";
             // 
             // lblRoom3
             // 
             this.lblRoom3.AutoSize = true;
+            this.lblRoom3.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblRoom3.Location = new System.Drawing.Point(468, 401);
             this.lblRoom3.Name = "lblRoom3";
-            this.lblRoom3.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom3.Size = new System.Drawing.Size(42, 14);
             this.lblRoom3.TabIndex = 16;
             this.lblRoom3.Text = "Room3";
             // 
             // lblRoom4
             // 
             this.lblRoom4.AutoSize = true;
+            this.lblRoom4.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoom4.Location = new System.Drawing.Point(60, 583);
             this.lblRoom4.Name = "lblRoom4";
-            this.lblRoom4.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom4.Size = new System.Drawing.Size(42, 14);
             this.lblRoom4.TabIndex = 17;
             this.lblRoom4.Text = "Room4";
             // 
             // lblRoom5
             // 
             this.lblRoom5.AutoSize = true;
+            this.lblRoom5.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblRoom5.Location = new System.Drawing.Point(260, 583);
             this.lblRoom5.Name = "lblRoom5";
-            this.lblRoom5.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom5.Size = new System.Drawing.Size(42, 14);
             this.lblRoom5.TabIndex = 18;
             this.lblRoom5.Text = "Room5";
             // 
             // lblRoom6
             // 
             this.lblRoom6.AutoSize = true;
+            this.lblRoom6.Font = new System.Drawing.Font("Segoe Script", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoom6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblRoom6.Location = new System.Drawing.Point(468, 583);
             this.lblRoom6.Name = "lblRoom6";
-            this.lblRoom6.Size = new System.Drawing.Size(44, 12);
+            this.lblRoom6.Size = new System.Drawing.Size(42, 14);
             this.lblRoom6.TabIndex = 19;
             this.lblRoom6.Text = "Room6";
             // 
@@ -366,9 +387,9 @@
             // 
             this.lbChattingRoomMainForm.FormattingEnabled = true;
             this.lbChattingRoomMainForm.ItemHeight = 12;
-            this.lbChattingRoomMainForm.Location = new System.Drawing.Point(647, 276);
+            this.lbChattingRoomMainForm.Location = new System.Drawing.Point(647, 328);
             this.lbChattingRoomMainForm.Name = "lbChattingRoomMainForm";
-            this.lbChattingRoomMainForm.Size = new System.Drawing.Size(464, 256);
+            this.lbChattingRoomMainForm.Size = new System.Drawing.Size(464, 232);
             this.lbChattingRoomMainForm.TabIndex = 20;
             // 
             // timer2
@@ -427,15 +448,27 @@
             this.dateTimePicker1.TabIndex = 24;
             this.dateTimePicker1.Value = new System.DateTime(2019, 8, 23, 16, 36, 3, 0);
             // 
-            // btnEndAuctionMainForm
+            // pictureBox1
             // 
-            this.btnEndAuctionMainForm.Location = new System.Drawing.Point(1294, 136);
-            this.btnEndAuctionMainForm.Name = "btnEndAuctionMainForm";
-            this.btnEndAuctionMainForm.Size = new System.Drawing.Size(122, 53);
-            this.btnEndAuctionMainForm.TabIndex = 25;
-            this.btnEndAuctionMainForm.Text = "경매종료";
-            this.btnEndAuctionMainForm.UseVisualStyleBackColor = true;
-            this.btnEndAuctionMainForm.Click += new System.EventHandler(this.btnEndAuctionMainForm_Click);
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1114, 645);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbRoomNumInfoMainForm
+            // 
+            this.lbRoomNumInfoMainForm.AutoSize = true;
+            this.lbRoomNumInfoMainForm.Font = new System.Drawing.Font("Segoe Print", 7F);
+            this.lbRoomNumInfoMainForm.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbRoomNumInfoMainForm.Location = new System.Drawing.Point(818, 81);
+            this.lbRoomNumInfoMainForm.Name = "lbRoomNumInfoMainForm";
+            this.lbRoomNumInfoMainForm.Size = new System.Drawing.Size(33, 17);
+            this.lbRoomNumInfoMainForm.TabIndex = 26;
+            this.lbRoomNumInfoMainForm.Text = "etert";
+            this.lbRoomNumInfoMainForm.Click += new System.EventHandler(this.LbRoomNumInfoMainForm_Click);
             // 
             // MainForm
             // 
@@ -443,7 +476,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1504, 636);
-            this.Controls.Add(this.btnEndAuctionMainForm);
+            this.Controls.Add(this.lbRoomNumInfoMainForm);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.clbRoomCheck);
             this.Controls.Add(this.btnOpenDialog);
@@ -475,6 +508,8 @@
             this.Controls.Add(this.btnSendingTextMainForm);
             this.Controls.Add(this.tbSendingTextMainForm);
             this.Controls.Add(this.lbNoticeMainForm);
+            this.Controls.Add(this.pictureBox1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -489,6 +524,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExitMainForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,6 +569,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckedListBox clbRoomCheck;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button btnEndAuctionMainForm;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Label lbRoomNumInfoMainForm;
     }
 }

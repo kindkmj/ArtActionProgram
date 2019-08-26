@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.btnLogInForm = new System.Windows.Forms.Button();
             this.tbIDLogInForm = new System.Windows.Forms.TextBox();
@@ -40,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbExitLogInForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,11 +53,12 @@
             this.btnLogInForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogInForm.BackgroundImage")));
             this.btnLogInForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLogInForm.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogInForm.Location = new System.Drawing.Point(435, 131);
+            this.btnLogInForm.Location = new System.Drawing.Point(449, 116);
             this.btnLogInForm.Name = "btnLogInForm";
             this.btnLogInForm.Size = new System.Drawing.Size(180, 63);
-            this.btnLogInForm.TabIndex = 0;
+            this.btnLogInForm.TabIndex = 3;
             this.btnLogInForm.Text = "LOGIN";
+            this.btnLogInForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLogInForm.UseVisualStyleBackColor = false;
             this.btnLogInForm.Click += new System.EventHandler(this.BtnLogInForm_Click);
             // 
@@ -66,7 +70,7 @@
             this.tbIDLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbIDLogInForm.TabIndex = 1;
             this.tbIDLogInForm.Text = "ID";
-            this.tbIDLogInForm.TextChanged += new System.EventHandler(this.TbIDLogInForm_TextChanged);
+
             this.tbIDLogInForm.Enter += new System.EventHandler(this.TbIDLogInForm_Enter);
             // 
             // tbPWLogInForm
@@ -74,6 +78,7 @@
             this.tbPWLogInForm.ForeColor = System.Drawing.Color.DarkGray;
             this.tbPWLogInForm.Location = new System.Drawing.Point(170, 168);
             this.tbPWLogInForm.Name = "tbPWLogInForm";
+            this.tbPWLogInForm.PasswordChar = '*';
             this.tbPWLogInForm.Size = new System.Drawing.Size(200, 21);
             this.tbPWLogInForm.TabIndex = 2;
             this.tbPWLogInForm.Text = "PASSWORD";
@@ -97,7 +102,7 @@
             this.btnOpenResisterFormLogInForm.Location = new System.Drawing.Point(319, 260);
             this.btnOpenResisterFormLogInForm.Name = "btnOpenResisterFormLogInForm";
             this.btnOpenResisterFormLogInForm.Size = new System.Drawing.Size(143, 41);
-            this.btnOpenResisterFormLogInForm.TabIndex = 4;
+            this.btnOpenResisterFormLogInForm.TabIndex = 6;
             this.btnOpenResisterFormLogInForm.Text = "Register";
             this.btnOpenResisterFormLogInForm.UseVisualStyleBackColor = false;
             this.btnOpenResisterFormLogInForm.Click += new System.EventHandler(this.BtnOpenRegisterFormLogInForm_Click);
@@ -111,7 +116,7 @@
             this.btnFindIDLogInForm.Location = new System.Drawing.Point(95, 267);
             this.btnFindIDLogInForm.Name = "btnFindIDLogInForm";
             this.btnFindIDLogInForm.Size = new System.Drawing.Size(85, 26);
-            this.btnFindIDLogInForm.TabIndex = 5;
+            this.btnFindIDLogInForm.TabIndex = 4;
             this.btnFindIDLogInForm.Text = "Forgot ID";
             this.btnFindIDLogInForm.UseVisualStyleBackColor = false;
             this.btnFindIDLogInForm.Click += new System.EventHandler(this.BtnFindIDLogInForm_Click);
@@ -125,7 +130,7 @@
             this.btnFindPWLogInForm.Location = new System.Drawing.Point(186, 267);
             this.btnFindPWLogInForm.Name = "btnFindPWLogInForm";
             this.btnFindPWLogInForm.Size = new System.Drawing.Size(85, 27);
-            this.btnFindPWLogInForm.TabIndex = 6;
+            this.btnFindPWLogInForm.TabIndex = 5;
             this.btnFindPWLogInForm.Text = "Forgot PW";
             this.btnFindPWLogInForm.UseVisualStyleBackColor = false;
             this.btnFindPWLogInForm.Click += new System.EventHandler(this.BtnFindPWLogInForm_Click);
@@ -134,7 +139,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(141, 87);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 104);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(288, 133);
             this.pictureBox1.TabIndex = 7;
@@ -172,6 +177,16 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Online Art Gallery";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 10;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 50;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -194,6 +209,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.TopMost = true;
+
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseUp);
@@ -217,6 +234,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

@@ -106,18 +106,8 @@ namespace ArtActionServer
             {
                 foreach (SocketData client in clientList)
                 {
-//                    if (client != selfClient)
-//                    {
-//                        if (IsAnonymous)
-//                            client.sw.WriteLine(data);
-//                        else
-//                        {
-//                        string ipData = String.Format("[{0}] {1}", selfClient.ip, data);
-                        //                        client.sw.WriteLine(ipData);
-                        //                        }
                         client.sw.WriteLine(data);
                         client.sw.Flush(); // 즉시 전송해라
-//                    }
                 }
             }
         }

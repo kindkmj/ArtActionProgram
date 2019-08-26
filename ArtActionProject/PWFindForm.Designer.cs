@@ -50,7 +50,7 @@
             this.tbIDPWForm.Location = new System.Drawing.Point(212, 139);
             this.tbIDPWForm.Name = "tbIDPWForm";
             this.tbIDPWForm.Size = new System.Drawing.Size(192, 21);
-            this.tbIDPWForm.TabIndex = 0;
+            this.tbIDPWForm.TabIndex = 1;
             this.tbIDPWForm.Text = "ID";
             this.tbIDPWForm.Enter += new System.EventHandler(this.TbFindPWFindPWForm_Enter);
             // 
@@ -63,7 +63,7 @@
             this.btnFindPWForm.Location = new System.Drawing.Point(177, 240);
             this.btnFindPWForm.Name = "btnFindPWForm";
             this.btnFindPWForm.Size = new System.Drawing.Size(125, 48);
-            this.btnFindPWForm.TabIndex = 1;
+            this.btnFindPWForm.TabIndex = 3;
             this.btnFindPWForm.Text = "Enter";
             this.btnFindPWForm.UseVisualStyleBackColor = false;
             this.btnFindPWForm.Click += new System.EventHandler(this.BtnEnterValueFindPWForm_Click);
@@ -77,7 +77,7 @@
             this.btnFindIDPWForm.Location = new System.Drawing.Point(335, 240);
             this.btnFindIDPWForm.Name = "btnFindIDPWForm";
             this.btnFindIDPWForm.Size = new System.Drawing.Size(125, 48);
-            this.btnFindIDPWForm.TabIndex = 2;
+            this.btnFindIDPWForm.TabIndex = 4;
             this.btnFindIDPWForm.Text = "Forgot ID";
             this.btnFindIDPWForm.UseVisualStyleBackColor = false;
             this.btnFindIDPWForm.Click += new System.EventHandler(this.BtnConnectFindLDPWForm_Click);
@@ -88,7 +88,7 @@
             this.tbEmailFindIDForm.Location = new System.Drawing.Point(212, 189);
             this.tbEmailFindIDForm.Name = "tbEmailFindIDForm";
             this.tbEmailFindIDForm.Size = new System.Drawing.Size(192, 21);
-            this.tbEmailFindIDForm.TabIndex = 4;
+            this.tbEmailFindIDForm.TabIndex = 2;
             this.tbEmailFindIDForm.Text = "E.Mail";
             this.tbEmailFindIDForm.Enter += new System.EventHandler(this.TbEnterEmailFindIDForm_Enter);
             // 
@@ -141,7 +141,7 @@
             this.label2.Location = new System.Drawing.Point(209, 122);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 14);
-            this.label2.TabIndex = 19;
+            this.label2.TabIndex = 0;
             this.label2.Text = "고객님의 아이디를 입력해주세요.";
             // 
             // label4
@@ -151,7 +151,7 @@
             this.label4.Location = new System.Drawing.Point(209, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(181, 14);
-            this.label4.TabIndex = 20;
+            this.label4.TabIndex = 0;
             this.label4.Text = "고객님이 등록하신 이메일을 입력해주세요";
             // 
             // label5
