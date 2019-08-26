@@ -67,6 +67,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.clbRoomCheck = new System.Windows.Forms.CheckedListBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnEndAuctionMainForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEnterViewImageMainForm3)).BeginInit();
@@ -254,12 +255,13 @@
             // 
             // btnStartAuctionMainForm
             // 
-            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1312, 270);
+            this.btnStartAuctionMainForm.Location = new System.Drawing.Point(1294, 63);
             this.btnStartAuctionMainForm.Name = "btnStartAuctionMainForm";
             this.btnStartAuctionMainForm.Size = new System.Drawing.Size(122, 53);
             this.btnStartAuctionMainForm.TabIndex = 9;
             this.btnStartAuctionMainForm.Text = "경매시작";
             this.btnStartAuctionMainForm.UseVisualStyleBackColor = true;
+            this.btnStartAuctionMainForm.Click += new System.EventHandler(this.btnStartAuctionMainForm_Click);
             // 
             // tbSettingAuctionAmountMainForm
             // 
@@ -425,12 +427,23 @@
             this.dateTimePicker1.TabIndex = 24;
             this.dateTimePicker1.Value = new System.DateTime(2019, 8, 23, 16, 36, 3, 0);
             // 
+            // btnEndAuctionMainForm
+            // 
+            this.btnEndAuctionMainForm.Location = new System.Drawing.Point(1294, 136);
+            this.btnEndAuctionMainForm.Name = "btnEndAuctionMainForm";
+            this.btnEndAuctionMainForm.Size = new System.Drawing.Size(122, 53);
+            this.btnEndAuctionMainForm.TabIndex = 25;
+            this.btnEndAuctionMainForm.Text = "경매종료";
+            this.btnEndAuctionMainForm.UseVisualStyleBackColor = true;
+            this.btnEndAuctionMainForm.Click += new System.EventHandler(this.btnEndAuctionMainForm_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1504, 636);
+            this.Controls.Add(this.btnEndAuctionMainForm);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.clbRoomCheck);
             this.Controls.Add(this.btnOpenDialog);
@@ -520,5 +533,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.CheckedListBox clbRoomCheck;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnEndAuctionMainForm;
     }
 }

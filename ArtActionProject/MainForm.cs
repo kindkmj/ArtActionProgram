@@ -86,14 +86,13 @@ namespace ArtActionProject
             {
                 Invoke(addMsgData, new object[] {data});
             }
-
             else
             {
                 lbChattingRoomMainForm.Items.Add(data);
                 lbChattingRoomMainForm.SelectedIndex = lbChattingRoomMainForm.Items.Count - 1;
             }
         }
-
+        //읽는곳.
         void ThreadRecv()
         {
             StreamReader sr = new StreamReader(ns);
@@ -104,7 +103,11 @@ namespace ArtActionProject
                 {
                     //보냄
                     string data = sr.ReadLine();
-                    AddtbChattingRoomMainForm(data);
+//                    AddtbChattingRoomMainForm(data);
+                    if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
+                    {
+                        checkedData(data);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -112,6 +115,41 @@ namespace ArtActionProject
                     btnEnabled(2); //방 입장 버튼 활성화
                     break;
                 }
+            }
+        }
+        private void checkedData(string data)
+        {
+            if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMIN"))
+            {
+                //어드민이 방 입장할때 취해야할 액션이 있는지?
+                lbNoticeMainForm.Items.Clear();
+            }
+            else if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMSTARTAUCTION"))
+            {
+                string ment = "경매가 시작되었습니다.";
+                btnAmountMainForm.Enabled = true;
+                MessageBox.Show(ment);
+                AddtbChattingRoomMainForm(ment);
+            }
+            else if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMENDAUCTION"))
+            {
+                try
+                {
+                    string winning = Entity.Select("C", "S", "USER_NAME", "AUCTION", "CONFIRMED_AMOUNT", label9.Text);
+                    btnAmountMainForm.Enabled = false;
+                    MessageBox.Show("경매 낙찰자는 " + winning + " 이며 " + label9.Text + " 금액 으로 낙찰 되셨습니다.");
+                    lbNoticeMainForm.Items.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if (data.Trim().ToUpper().StartsWith("ADMIN.ROOMOUT"))
+            {
+                //어드민이 나간경우 버튼 비활성화 이후에 해야할 작업이 있는지?
+                btnAmountMainForm.Enabled = false;
+                lbNoticeMainForm.Items.Clear();
             }
         }
 
@@ -310,7 +348,10 @@ namespace ArtActionProject
         private void BtnExitChattingMainForm_Click(object sender, EventArgs e)
         {
             iroomNumber = 0;
-            this.Size = new Size(640, 650);
+            if (LoginForm.sUID.Trim().ToUpper() != "ADMIN")
+            {
+                this.Size = new Size(640, 650);
+            }
             timer2.Enabled = false;
             try
             {
@@ -627,6 +668,32 @@ namespace ArtActionProject
                 string file_path = null;
                 file_path = setFileLocation();
                 setBtinImage(6, file_path);
+            }
+        }
+
+        private void btnStartAuctionMainForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sw.WriteLine("ADMIN.ROOMSTARTAUCTION");
+                sw.Flush(); //즉시 발송한다.
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEndAuctionMainForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                sw.WriteLine("ADMIN.ROOMENDAUCTION");
+                sw.Flush(); //즉시 발송한다.
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
