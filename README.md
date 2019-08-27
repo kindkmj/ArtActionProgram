@@ -1,8 +1,11 @@
 # ArtActionProgram
-비트캠프 프로젝트
+<C# Winform 비트캠프 프로젝트>
 <html>
   <head>
     <meta charset="utf-8">
+    <p>김민진</p>
+    <p>김보라</p>
+    <p>test 1234</p>
     <h1>미술작품 경매를 위한 프로그램</h1>
   </head>
   <body>
