@@ -10,10 +10,7 @@
   </head>
   <body>
             <p>아름다운 미술작품을 원하는 유저들을 모아 유저들끼리의 경매를 진행</p>
-    <p>아름다운 미술작품을 원하는 유저들을 모아 유저들끼리의 경매를 진행</p>
-            <p>test 1234</p>
-    <p>test 234</p>
-    <p>test 1234</p>
+    
     //<img src="images/200x200.png" alt="My Image" width="100" height="200">
   </body>
 </html>
