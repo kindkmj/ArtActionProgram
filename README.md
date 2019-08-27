@@ -3,9 +3,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My test page</title>
+    <title>Art Action Program</title>
   </head>
   <body>
-    <img src="images/firefox-icon.png" alt="My test image">
+  <h1>Hello World</h1>
+            <p>This is a website.</p>
   </body>
 </html>
