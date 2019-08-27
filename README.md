@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Art Action Program</title>
+    <h1>Art Action Program</h1>
   </head>
   <body>
   <h1>Hello World</h1>
